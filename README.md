@@ -35,4 +35,4 @@ Projeto atualizado para apresentar um currículo profissional com foco em:
 - adaptar uma versão específica para cada vaga
 - manter LinkedIn com o mesmo texto-base do currículo
 - destacar no portfólio projetos com Node.js, AWS e banco de dados
-# Curr-culo2026
+# Curriculo2026
