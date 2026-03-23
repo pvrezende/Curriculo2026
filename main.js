@@ -3,10 +3,9 @@ const themeToggle = document.getElementById('themeToggle');
 const langToggle = document.getElementById('langToggle');
 const printResume = document.getElementById('printResume');
 
-const THEME_KEY = 'curriculo_theme';
-const LANG_KEY = 'curriculo_lang';
+const THEME_KEY = 'curriculo_2026_theme';
+const LANG_KEY = 'curriculo_2026_lang';
 
-// --- Traduções ---
 const translations = {
   pt: {
     printBtn: "Baixar / Imprimir PDF",
@@ -19,12 +18,10 @@ const translations = {
     phoneLabel: "Telefone:",
     locationLabel: "Localização:",
     englishLabel: "Inglês:",
-    englishLevel: "Intermediário (leitura técnica e compreensão auditiva)",
+    englishLevel: "Intermediário B1 (leitura técnica e compreensão auditiva)",
     portfolioLink: "Portfólio",
     resumoTitle: "Resumo Profissional",
     resumoContent: "Desenvolvedor com foco em aplicações Mobile e Front-end, com experiência em React Native, JavaScript e consumo de APIs REST. Atuação em projetos Full Stack utilizando Node.js, bancos de dados relacionais e organização de arquitetura de aplicações. Experiência no desenvolvimento de aplicações web e mobile, versionamento com Git e deploy em ambiente cloud (AWS). Possuo vivência com projetos reais, incluindo desafios técnicos profissionais e aplicações com integração de IA. <br><br> Busco oportunidade como Desenvolvedor Mobile Júnior ou Full Stack, contribuindo na criação de aplicações escaláveis, performáticas e centradas no usuário.",
-    objetivoTitle: "Objetivo",
-    objetivoContent: "Atuar como Desenvolvedor Mobile Júnior ou Desenvolvedor Front-end, com foco em aplicações React Native, interfaces modernas e integração com APIs, contribuindo também em projetos Full Stack.",
     expTitle: "Experiência Profissional",
     job1Title: "Desenvolvedor Full Stack Jr — Delta Solutions",
     job1Date: "Agosto/2025 – Atual",
@@ -43,12 +40,6 @@ const translations = {
       <li>Suporte ao desenvolvimento de back-end com Node.js.</li>
       <li>Manipulação de dados e consultas em MySQL e PostgreSQL.</li>
       <li>Colaboração com equipe técnica na evolução de funcionalidades e correção de bugs.</li>
-    `,
-    job3Title: "Jovem Aprendiz / Auxiliar de Assistência Técnica — Techlog",
-    job3Date: "Maio/2018 – Maio/2019",
-    job3List: `
-      <li>Suporte a rotinas técnicas, atendimento e organização de processos internos.</li>
-      <li>Vivência inicial com suporte, manutenção e operação em ambiente corporativo.</li>
     `,
     projectsTitle: "Projetos em Destaque",
     proj1Sub: "Sistema de Inspeção Industrial com IA",
@@ -70,17 +61,12 @@ const translations = {
     proj5Title: "Portfólio Profissional",
     proj5Desc: "Website pessoal para apresentação de projetos, habilidades técnicas e experiência profissional.",
     accessPortfolio: "Acessar portfólio",
-    skillsTitle: "Habilidades Técnicas",
-    skillMobile: "Desenvolvimento Mobile (React Native)",
-    skillApiConsumption: "Consumo de APIs",
-    skillMvc: "Arquitetura MVC",
-    skillMod: "Modularização de código",
     eduTitle: "Formação",
     courseName: "Engenharia de Software",
     period: "4° período",
     graduation: "Previsão de conclusão: 2029",
     coursesTitle: "Cursos",
-    courseOngoing: "Desenvolvimento Full-Stack — INDT (em andamento)",
+    courseOngoing: "Desenvolvimento Full-Stack — INDT (350 hrs)",
     courseCetam: "Informática Básica e Avançada — CETAM",
     footerText: "Currículo — Paulo Victor Rezende Virginio",
     footerSub: "Disponível para oportunidades em Mobile, Front-end e Full Stack"
@@ -96,12 +82,10 @@ const translations = {
     phoneLabel: "Phone:",
     locationLabel: "Location:",
     englishLabel: "English:",
-    englishLevel: "Intermediate (technical reading and listening)",
+    englishLevel: "Intermediate B1 (technical reading and listening)",
     portfolioLink: "Portfolio",
     resumoTitle: "Professional Summary",
-    resumoContent: "Developer focused on Mobile and Front-end applications, with experience in React Native, JavaScript, and REST API consumption. Experience in Full Stack projects using Node.js, relational databases, and application architecture. <br><br> Experienced in web and mobile development, Git versioning, and cloud deployment (AWS). Proven track record with real-world projects, including professional technical challenges and AI-integrated applications. Seeking opportunities as a Junior Mobile or Full Stack Developer.",
-    objetivoTitle: "Objective",
-    objetivoContent: "Seeking a position as a Junior Mobile Developer or Front-end Developer, focusing on React Native, modern interfaces, and API integration, while also contributing to Full Stack projects.",
+    resumoContent: "Developer focused on Mobile and Front-end applications, with experience in React Native, JavaScript, and REST API consumption. Experience in Full Stack projects using Node.js, relational databases, and application architecture. <br><br> Proven track record with real-world projects, including professional technical challenges and AI-integrated applications. Seeking opportunities as a Junior Mobile or Full Stack Developer.",
     expTitle: "Professional Experience",
     job1Title: "Full Stack Developer Jr — Delta Solutions",
     job1Date: "August/2025 – Present",
@@ -120,12 +104,6 @@ const translations = {
       <li>Support for back-end development with Node.js.</li>
       <li>Data manipulation and queries in MySQL and PostgreSQL.</li>
       <li>Collaboration with the technical team on feature evolution and bug fixing.</li>
-    `,
-    job3Title: "Technical Assistant Apprentice — Techlog",
-    job3Date: "May/2018 – May/2019",
-    job3List: `
-      <li>Support for technical routines, customer service, and organization of internal processes.</li>
-      <li>Initial experience with support, maintenance, and operation in a corporate environment.</li>
     `,
     projectsTitle: "Featured Projects",
     proj1Sub: "Industrial Inspection System with AI",
@@ -147,24 +125,18 @@ const translations = {
     proj5Title: "Professional Portfolio",
     proj5Desc: "Personal website for presenting projects, technical skills, and professional experience.",
     accessPortfolio: "Access portfolio",
-    skillsTitle: "Technical Skills",
-    skillMobile: "Mobile Development (React Native)",
-    skillApiConsumption: "API Consumption",
-    skillMvc: "MVC Architecture",
-    skillMod: "Code Modularization",
     eduTitle: "Education",
     courseName: "Software Engineering",
     period: "4th semester",
     graduation: "Expected graduation: 2029",
     coursesTitle: "Courses",
-    courseOngoing: "Full-Stack Development — INDT (in progress)",
+    courseOngoing: "Full-Stack Development — INDT (350 hrs)",
     courseCetam: "Basic and Advanced IT — CETAM",
     footerText: "Resume — Paulo Victor Rezende Virginio",
     footerSub: "Available for Mobile, Front-end, and Full Stack opportunities"
   }
 };
 
-// --- Funções de Tema ---
 function applyTheme(theme) {
   root.setAttribute('data-theme', theme);
   if (themeToggle) {
@@ -178,7 +150,6 @@ function getSavedTheme() {
   return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
 }
 
-// --- Funções de Idioma ---
 function applyLanguage(lang) {
   document.querySelectorAll('[data-i18n]').forEach(el => {
     const key = el.getAttribute('data-i18n');
@@ -194,11 +165,9 @@ function getSavedLang() {
   return localStorage.getItem(LANG_KEY) || 'pt';
 }
 
-// --- Inicialização ---
 applyTheme(getSavedTheme());
 applyLanguage(getSavedLang());
 
-// --- Listeners ---
 if (themeToggle) {
   themeToggle.addEventListener('click', () => {
     const nextTheme = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';

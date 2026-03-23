@@ -50,7 +50,8 @@ a:hover {
 }
 
 .container {
-  width: min(1120px, calc(100% - 32px));
+  /* Ajustado para uma largura de coluna única centralizada */
+  width: min(850px, calc(100% - 32px));
   margin: 0 auto;
 }
 
@@ -119,9 +120,10 @@ a:hover {
   box-shadow: var(--shadow);
 }
 
+/* Forçado para uma coluna na Web */
 .hero {
-  display: grid;
-  grid-template-columns: 2fr 1fr;
+  display: flex;
+  flex-direction: column;
   gap: 24px;
   padding: 32px;
   margin-bottom: 24px;
@@ -179,7 +181,8 @@ a:hover {
 }
 
 .hero-meta {
-  display: grid;
+  display: flex;
+  flex-direction: column;
   gap: 16px;
 }
 
@@ -207,15 +210,17 @@ a:hover {
   margin-top: 10px;
 }
 
+/* Forçado para uma coluna na Web */
 .grid {
-  display: grid;
-  grid-template-columns: 2fr 1fr;
+  display: flex;
+  flex-direction: column;
   gap: 24px;
 }
 
 .main-column,
 .side-column {
-  display: grid;
+  display: flex;
+  flex-direction: column;
   gap: 24px;
 }
 
@@ -277,7 +282,8 @@ a:hover {
 @media (max-width: 900px) {
   .hero,
   .grid {
-    grid-template-columns: 1fr;
+    display: flex;
+    flex-direction: column;
   }
 
   .timeline-head,
@@ -311,7 +317,7 @@ a:hover {
 }
 
 /* =========================
-   PDF / PRINT LAYOUT
+    PDF / PRINT LAYOUT
 ========================= */
 
 @page {
