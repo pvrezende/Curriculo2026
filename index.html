@@ -5,8 +5,8 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Paulo Rezende - Currículo</title>
-  <meta name="description" content="Currículo profissional de Paulo Victor Rezende Virginio, Desenvolvedor Full Stack Júnior com experiência em Node.js, JavaScript, MySQL, PostgreSQL e AWS.">
-  <meta name="keywords" content="Paulo Rezende, currículo, desenvolvedor full stack jr, node.js, javascript, mysql, postgresql, aws, api rest, frontend, backend, manaus">
+  <meta name="description" content="Currículo profissional de Paulo Victor Rezende Virginio, Desenvolvedor com experiência em Node.js, JavaScript, TypeScript, React, React Native, Prisma, MySQL, PostgreSQL e AWS.">
+  <meta name="keywords" content="Paulo Rezende, currículo, desenvolvedor full stack, desenvolvedor backend, desenvolvedor frontend, desenvolvedor mobile, node.js, javascript, typescript, react, react native, prisma, mysql, postgresql, aws, api rest, frontend, backend, manaus">
   <meta name="author" content="Paulo Victor Rezende Virginio">
   <link rel="stylesheet" href="reset.css">
   <link rel="stylesheet" href="style.css">
@@ -14,11 +14,27 @@
 <body>
   <header class="topbar">
     <div class="container topbar-content">
-      <a class="brand" href="#topo"></a>
+      <a class="brand" href="#topo" aria-label="Ir para o topo"></a>
+
       <div class="topbar-actions">
-        <button id="langToggle" class="btn btn-secondary" type="button" aria-label="Alternar Idioma">EN / PT</button>
-        <button id="themeToggle" class="btn btn-secondary" type="button" aria-label="Alternar tema">Tema</button>
-        <button id="printResume" class="btn btn-primary" type="button" data-i18n="printBtn">Baixar / Imprimir PDF</button>
+        <select id="resumeRole" class="btn btn-secondary" aria-label="Selecionar versão do currículo">
+          <option value="backend">Back-end</option>
+          <option value="frontend">Front-end</option>
+          <option value="fullstack" selected>Full Stack</option>
+          <option value="mobile">Mobile</option>
+        </select>
+
+        <button id="langToggle" class="btn btn-secondary" type="button" aria-label="Alternar idioma">
+          EN / PT
+        </button>
+
+        <button id="themeToggle" class="btn btn-secondary" type="button" aria-label="Alternar tema">
+          Tema
+        </button>
+
+        <button id="printResume" class="btn btn-primary" type="button" data-i18n="printBtn">
+          Baixar / Imprimir PDF
+        </button>
       </div>
     </div>
   </header>
@@ -26,41 +42,41 @@
   <main id="topo" class="container page">
     <section class="hero card">
       <div class="hero-copy">
-        <span class="eyebrow" data-i18n="availability">Disponível para vagas presenciais, híbridas e remotas</span>
+        <span id="availability" class="eyebrow" data-i18n="availability">
+          Disponível para vagas presenciais, híbridas e remotas
+        </span>
+
         <h1>Paulo Victor Rezende Virginio</h1>
-        <p class="headline" data-i18n="headline">
-          Desenvolvedor Mobile e Front-end com experiência Full Stack | React Native | JavaScript | APIs REST | Node.js
-          </p>
-        <p class="summary" data-i18n="summary">
-          Desenvolvedor com experiência em aplicações Mobile, Front-end, Back-end e Full Stack,
-<<<<<<< HEAD
-          atuando com React, React Native, JavaScript, TypeScripte, Node.js e integração com APIs e bancos de dados.
-=======
-          atuando com React Native, JavaScript, Node.js e integração com APIs e bancos de dados.
->>>>>>> e79859b (Adicionando backend e angular)
+
+        <p id="headline" class="headline" data-i18n="headline">
+          Desenvolvedor Full Stack | Node.js | React | TypeScript | APIs REST | Prisma | AWS
         </p>
-        <div class="hero-tags" aria-label="Principais competências">
-          <span>APIs REST</span>
+
+        <p id="summary" class="summary" data-i18n="summary">
+          Desenvolvedor com experiência em aplicações Front-end, Back-end, Mobile e Full Stack,
+          atuando com JavaScript, TypeScript, Node.js, React, React Native, Prisma, integração com APIs e bancos de dados.
+        </p>
+
+        <div id="heroTags" class="hero-tags" aria-label="Principais competências">
           <span>Node.js</span>
-          <span>Express.js</span>
-          <span>JavaScript ES6+</span>
+          <span>React</span>
+          <span>TypeScript</span>
+          <span>JavaScript</span>
+          <span>APIs REST</span>
+          <span>Prisma ORM</span>
           <span>MySQL</span>
           <span>PostgreSQL</span>
           <span>AWS</span>
-          <span>Git & GitHub</span>
           <span>React Native</span>
-          <span>React</span>
-          <span>Expo Go</span>
-<<<<<<< HEAD
-          <span>Angula</span>
-=======
-          <span>Angular</span>
->>>>>>> e79859b (Adicionando backend e angular)
-          <span>Arquitetura MVC</span>
+          <span>Expo</span>
+          <span>Git & GitHub</span>
+          <span>Nginx</span>
+          <span>PM2</span>
           <span data-i18n="skillApi">Consumo de APIs REST</span>
           <span data-i18n="skillIntegration">Integração Front-end / Back-end</span>
         </div>
       </div>
+
       <aside class="hero-meta">
         <div class="meta-block">
           <h2 data-i18n="contactTitle">Contato</h2>
@@ -71,6 +87,7 @@
             <li><strong data-i18n="englishLabel">Inglês:</strong> <span data-i18n="englishLevel">Intermediário B1 (leitura técnica e compreensão auditiva)</span></li>
           </ul>
         </div>
+
         <div class="meta-block">
           <h2>Links</h2>
           <ul>
@@ -85,29 +102,15 @@
     <section class="grid">
       <div class="main-column">
         <section class="card section">
-        <h2 data-i18n="resumoTitle">Resumo Profissional</h2>
-        <p data-i18n="resumoContent">
-          Desenvolvedor com foco em aplicações Mobile e Front-end, com experiência em React Native,
-          JavaScript e consumo de APIs REST. Atuação em projetos Full Stack utilizando Node.js,
-          bancos de dados relacionais e organização de arquitetura de aplicações.
-
-          Experiência no desenvolvimento de aplicações web e mobile, versionamento com Git e
-          deploy em ambiente cloud (AWS). Possuo vivência com projetos reais, incluindo desafios
-          técnicos profissionais e aplicações com integração de IA.
-
-          Busco oportunidade como Desenvolvedor Mobile Júnior ou Full Stack, contribuindo na
-          criação de aplicações escaláveis, performáticas e centradas no usuário.
+          <h2 data-i18n="resumoTitle">Resumo Profissional</h2>
+          <p id="resumoContent" data-i18n="resumoContent">
+            Desenvolvedor Full Stack com experiência em desenvolvimento e manutenção de aplicações web, construção de APIs REST e integração entre front-end, back-end e bancos de dados.
+            <br><br>
+            Atuo com JavaScript, TypeScript, Node.js, React, MySQL, PostgreSQL e Prisma, além de suporte à infraestrutura em AWS. Tenho vivência com arquitetura em camadas, versionamento com Git e deploy de sistemas.
+            <br><br>
+            Busco contribuir com a evolução de produtos, construção de soluções escaláveis e melhoria contínua em qualidade, performance e integração entre serviços.
           </p>
-      </section>
-
-
-      <section class="grid">
-      <div class="main-column">
-        <section class="card section">
-        <h2 data-i18n="eduTitle">Formação</h2>
-          <p><strong>Engenharia de Software</strong> — Faculdade Estácio (Noturno)</p>
-          <p>4º período • Conclusão: 2029</p>
-      </section>
+        </section>
 
         <section class="card section">
           <h2 data-i18n="expTitle">Experiência Profissional</h2>
@@ -118,12 +121,13 @@
               <span data-i18n="job1Date">Agosto/2025 – Atual</span>
             </div>
             <ul data-i18n="job1List">
-              <li>Desenvolvimento e manutenção de aplicações web com JavaScript, Node.js e bancos relacionais.</li>
-              <li>Implementação de APIs REST para integração entre sistemas e consumo de dados.</li>
-              <li>Administração de infraestrutura em AWS, incluindo EC2, RDS e S3.</li>
-              <li>Configuração de Nginx, SSL/Certbot e gerenciamento de processos com PM2.</li>
-              <li>Automação de rotinas para redução de custos operacionais em ambiente cloud.</li>
-              <li>Suporte à estabilidade, segurança e disponibilidade de aplicações e bancos de dados.</li>
+              <li>Desenvolvimento e manutenção de aplicações web com Node.js, React e bancos relacionais (MySQL e PostgreSQL).</li>
+              <li>Implementação de APIs REST para integração entre sistemas e automação de processos internos.</li>
+              <li>Utilização de ORM Prisma para modelagem e manipulação eficiente de dados.</li>
+              <li>Administração de infraestrutura em AWS (EC2, RDS e S3), garantindo disponibilidade e escalabilidade das aplicações.</li>
+              <li>Configuração de ambiente com Nginx, SSL/Certbot e gerenciamento de processos com PM2.</li>
+              <li>Automação de rotinas que contribuíram para redução de custos operacionais em ambiente cloud.</li>
+              <li>Atuação na estabilidade, segurança e melhoria contínua de aplicações e bancos de dados.</li>
             </ul>
           </article>
 
@@ -134,7 +138,7 @@
             </div>
             <ul data-i18n="job2List">
               <li>Criação e manutenção de interfaces web responsivas com HTML, CSS e JavaScript.</li>
-              <li>Suporte ao desenvolvimento de back-end with Node.js.</li>
+              <li>Suporte ao desenvolvimento de back-end com Node.js.</li>
               <li>Manipulação de dados e consultas em MySQL e PostgreSQL.</li>
               <li>Colaboração com equipe técnica na evolução de funcionalidades e correção de bugs.</li>
             </ul>
@@ -144,78 +148,85 @@
         <section class="card section">
           <h2 data-i18n="projectsTitle">Projetos em Destaque</h2>
 
-          <article class="project">
-            <div>
-              <h3>TuboVision — <span data-i18n="proj1Sub">Sistema de Inspeção Industrial com IA</span></h3>
-              <p data-i18n="proj1Desc">
-                Projeto de visão computacional voltado para inspeção de capilares em ambiente industrial, com detecção
-                automática de peças e apoio na validação de modelos por imagem.
-              </p>
-            </div>
-            <ul>
-              <li><strong data-i18n="techLabel">Tecnologias:</strong> Python, OpenCV, YOLO, Docker e API REST</li>
-              <li><strong data-i18n="highlightLabel">Destaques:</strong> <span data-i18n="proj1Highlights">processamento de imagem, detecção de peças, análise visual e integração com fluxo de inspeção</span></li>
-              <li><strong>Link:</strong> <a target="_blank" rel="noreferrer" href="https://github.com/pvrezende/TuboVision" data-i18n="repoLink">Repositório no GitHub</a></li>
-            </ul>
-          </article>
+          <div id="projectsContainer">
+            <article class="project">
+              <div>
+                <h3>TuboVision — <span data-i18n="proj1Sub">Sistema de Inspeção Industrial com IA</span></h3>
+                <p data-i18n="proj1Desc">
+                  Projeto de visão computacional voltado para inspeção de capilares em ambiente industrial, com detecção automática de peças e apoio na validação de modelos por imagem.
+                </p>
+              </div>
+              <ul>
+                <li><strong data-i18n="techLabel">Tecnologias:</strong> Python, OpenCV, YOLO, Docker e API REST</li>
+                <li><strong data-i18n="highlightLabel">Destaques:</strong> <span data-i18n="proj1Highlights">processamento de imagem, detecção de peças, análise visual e integração com fluxo de inspeção</span></li>
+                <li><strong>Link:</strong> <a target="_blank" rel="noreferrer" href="https://github.com/pvrezende/TuboVision" data-i18n="repoLink">Repositório no GitHub</a></li>
+              </ul>
+            </article>
 
-          <article class="project">
-            <div>
-              <h3 data-i18n="proj2Title">Dashboard de Produção Industrial</h3>
-              <p data-i18n="proj2Desc">
-                Dashboard web para monitoramento de produção industrial com visualização
-              de dados em tempo real e interface interativa para acompanhamento de indicadores.
-              </p>
-            </div>
-            <ul>
-              <li><strong data-i18n="techLabel">Tecnologias:</strong> HTML, CSS, JavaScript, Node.js, MySQL, AWS, Chart.js</li>
-              <li><strong data-i18n="highlightLabel">Destaques:</strong> <span data-i18n="proj2Highlights">produção hora a hora, relatórios, gestão de etapas e eficiência operacional</span></li>
-              <li><strong>Link:</strong> <a target="_blank" rel="noreferrer" href="http://98.84.113.180:3000/">Dashboard</a></li>
-            </ul>
-          </article>
+            <article class="project">
+              <div>
+                <h3 data-i18n="proj2Title">Dashboard de Produção Industrial</h3>
+                <p data-i18n="proj2Desc">
+                  Dashboard web para monitoramento de produção industrial com visualização de dados em tempo real e interface interativa para acompanhamento de indicadores.
+                </p>
+              </div>
+              <ul>
+                <li><strong data-i18n="techLabel">Tecnologias:</strong> HTML, CSS, JavaScript, Node.js, MySQL, AWS, Chart.js</li>
+                <li><strong data-i18n="highlightLabel">Destaques:</strong> <span data-i18n="proj2Highlights">produção hora a hora, relatórios, gestão de etapas e eficiência operacional</span></li>
+                <li><strong>Link:</strong> <a target="_blank" rel="noreferrer" href="http://98.84.113.180:3000/">Dashboard</a></li>
+              </ul>
+            </article>
 
-          <article class="project">
-            <div>
-              <h3>Arcon — <span data-i18n="proj3Sub">Sistema Web Full Stack (Desafio Técnico)</span></h3>
-              <p data-i18n="proj3Desc">
-                Aplicação desenvolvida como desafio técnico profissional, com foco na construção
-                de arquitetura full stack, integração entre front-end e back-end e consumo de APIs REST.
-              </p>
-            </div>
-            <ul>
-              <li><strong data-i18n="techLabel">Tecnologias:</strong> JavaScript, Node.js, HTML, CSS, PostgreSQL</li>
-              <li><strong data-i18n="highlightLabel">Destaques:</strong> <span data-i18n="proj3Highlights">integração de APIs REST, organização em camadas, versionamento com Git e boas práticas</span></li>
-              <li><strong>Link:</strong> <a target="_blank" rel="noreferrer" href="https://github.com/pvrezende/Arcon.git" data-i18n="repoLink">Repositório no GitHub</a></li>
-            </ul>
-          </article>
+            <article class="project">
+              <div>
+                <h3>Arcon — <span data-i18n="proj3Sub">Sistema Web Full Stack (Desafio Técnico)</span></h3>
+                <p data-i18n="proj3Desc">
+                  Aplicação desenvolvida como desafio técnico profissional, com foco na construção de arquitetura full stack, integração entre front-end e back-end e consumo de APIs REST.
+                </p>
+              </div>
+              <ul>
+                <li><strong data-i18n="techLabel">Tecnologias:</strong> JavaScript, Node.js, HTML, CSS, PostgreSQL, Prisma</li>
+                <li><strong data-i18n="highlightLabel">Destaques:</strong> <span data-i18n="proj3Highlights">integração de APIs REST, organização em camadas, versionamento com Git e boas práticas</span></li>
+                <li><strong>Link:</strong> <a target="_blank" rel="noreferrer" href="https://github.com/pvrezende/Arcon.git" data-i18n="repoLink">Repositório no GitHub</a></li>
+              </ul>
+            </article>
 
-          <article class="project">
-            <div>
-              <h3 data-i18n="proj4Title">Controle de Gastos (Web + Mobile)</h3>
-              <p data-i18n="proj4Desc">
-                Aplicação multiplataforma para gestão financeira pessoal, desenvolvida com foco em
-                experiência mobile, organização de dados e consumo de serviços.
-              </p>
-            </div>
-            <ul>
-              <li><strong data-i18n="techLabel">Tecnologias:</strong> React, React Native, Expo, JavaScript</li>
-              <li><strong data-i18n="highlightLabel">Destaques:</strong> <span data-i18n="proj4Highlights">aplicação mobile com React Native, consumo de APIs REST, gerenciamento de estado e navegação</span></li>
-              <li><strong>Link:</strong> <a target="_blank" rel="noreferrer" href="https://controle-de-gastos-app.vercel.app/" data-i18n="accessProject">Acessar projeto</a></li>
-            </ul>
-          </article>
+            <article class="project">
+              <div>
+                <h3 data-i18n="proj4Title">Controle de Gastos (Web + Mobile)</h3>
+                <p data-i18n="proj4Desc">
+                  Aplicação multiplataforma para gestão financeira pessoal, desenvolvida com foco em experiência mobile, organização de dados e consumo de serviços.
+                </p>
+              </div>
+              <ul>
+                <li><strong data-i18n="techLabel">Tecnologias:</strong> React, React Native, Expo, JavaScript</li>
+                <li><strong data-i18n="highlightLabel">Destaques:</strong> <span data-i18n="proj4Highlights">aplicação mobile com React Native, consumo de APIs REST, gerenciamento de estado e navegação</span></li>
+                <li><strong>Link:</strong> <a target="_blank" rel="noreferrer" href="https://controle-de-gastos-app.vercel.app/" data-i18n="accessProject">Acessar projeto</a></li>
+              </ul>
+            </article>
 
-          <article class="project">
-            <div>
-              <h3 data-i18n="proj5Title">Portfólio Profissional</h3>
-              <p data-i18n="proj5Desc">Website pessoal para apresentação de projetos, habilidades técnicas e experiência profissional.</p>
-            </div>
-            <ul>
-              <li><strong data-i18n="techLabel">Tecnologias:</strong> HTML, CSS, JavaScript</li>
-              <li><strong>Link:</strong> <a target="_blank" rel="noreferrer" href="https://portfolio-paulo-rezendes-projects.vercel.app/" data-i18n="accessPortfolio">Acessar portfólio</a></li>
-            </ul>
-          </article>
+            <article class="project">
+              <div>
+                <h3 data-i18n="proj5Title">Portfólio Profissional</h3>
+                <p data-i18n="proj5Desc">
+                  Website pessoal para apresentação de projetos, habilidades técnicas e experiência profissional.
+                </p>
+              </div>
+              <ul>
+                <li><strong data-i18n="techLabel">Tecnologias:</strong> HTML, CSS, JavaScript</li>
+                <li><strong>Link:</strong> <a target="_blank" rel="noreferrer" href="https://portfolio-paulo-rezendes-projects.vercel.app/" data-i18n="accessPortfolio">Acessar portfólio</a></li>
+              </ul>
+            </article>
+          </div>
         </section>
       </div>
+
+      <aside class="side-column">
+        <section class="card section">
+          <h2 data-i18n="eduTitle">Formação</h2>
+          <p><strong>Engenharia de Software</strong> — Faculdade Estácio (Noturno)</p>
+          <p>4º período • Conclusão: 2029</p>
+        </section>
 
         <section class="card section compact">
           <h2 data-i18n="coursesTitle">Cursos</h2>
@@ -223,12 +234,12 @@
             <li>HTML e CSS — Dio</li>
             <li>JavaScript — Dio</li>
             <li>Git e GitHub — Dio</li>
+            <li>TypeScript — estudos e aplicação em projetos</li>
             <li data-i18n="courseOngoing">Desenvolvimento Full-Stack — INDT (350 hrs)</li>
             <li data-i18n="courseCetam">Informática Básica e Avançada — CETAM</li>
-            <li>Desenvolvimento Full-Stack - Atlantico Avanti</li>
+            <li>Desenvolvimento Full-Stack — Atlântico Avanti</li>
           </ul>
         </section>
-
       </aside>
     </section>
   </main>
@@ -236,7 +247,9 @@
   <footer class="footer">
     <div class="container footer-content">
       <p data-i18n="footerText">Currículo — Paulo Victor Rezende Virginio</p>
-      <p data-i18n="footerSub">Disponível para oportunidades em Mobile, Front-end e desenvolvimento Full Stack</p>
+      <p id="footerSub" data-i18n="footerSub">
+        Disponível para oportunidades em Desenvolvimento Full Stack
+      </p>
     </div>
   </footer>
 
