@@ -43,7 +43,7 @@ const translations = {
     job1Title: 'Desenvolvedor Full Stack — Delta Solutions',
     job1Date: 'Março/2025 – Atual',
     job1List: `
-      <li>Atuei em um cenário com necessidade de centralizar informações operacionais; desenvolvi e mantive aplicações web integrando Node.js, React e bancos relacionais, aumentando a confiabilidade do fluxo de dados da operação.</li>
+      <li>A operação não possuía visibilidade centralizada sobre produção e atividades; desenvolvi e mantive aplicações web integrando Node.js, React e bancos relacionais; isso aumentou a confiabilidade das informações e melhorou o acompanhamento operacional em tempo real.</li>
       <li>Havia retrabalho e baixa integração entre sistemas; implementei APIs REST para comunicação entre serviços e automação de processos internos, reduzindo etapas manuais e melhorando a eficiência operacional.</li>
       <li>A camada de dados precisava de mais organização e manutenção; utilizei Prisma ORM para modelagem e manipulação padronizada de dados, melhorando legibilidade, produtividade e manutenção do código.</li>
       <li>O ambiente exigia disponibilidade e escalabilidade; administrei infraestrutura em AWS (EC2, RDS e S3), garantindo continuidade dos serviços e melhor suporte ao crescimento das aplicações.</li>
@@ -114,7 +114,7 @@ const roleProfiles = {
       resumoContent: `
         Havia falta de padronização no acesso e processamento de dados entre sistemas internos; projetei e desenvolvi APIs REST para centralizar, processar e distribuir informações em tempo real; isso reduziu inconsistências, aumentou a confiabilidade dos dados e melhorou a comunicação entre sistemas; utilizando Node.js, TypeScript, Express, MySQL e PostgreSQL.
         <br><br>
-        Processos operacionais dependiam de etapas manuais sujeitas a erro e retrabalho; implementei integrações entre sistemas e automatizei fluxos de processamento no back-end; isso aumentou a eficiência operacional, reduziu tarefas manuais e trouxe maior consistência para os dados processados; utilizando Node.js, APIs REST e integrações entre serviços internos.
+        Processos operacionais dependiam de etapas manuais sujeitas a erro; implementei integrações e automações no back-end; isso reduziu retrabalho, aumentou a eficiência operacional e melhorou a confiabilidade dos dados; utilizando Node.js, APIs REST e integrações entre serviços.
         <br><br>
         O banco de dados apresentava gargalos de organização e performance em consultas; reestruturei modelagem, padronizei acesso a dados e otimizei operações de leitura e escrita; isso melhorou a performance das consultas, facilitou manutenção e aumentou a escalabilidade da aplicação; utilizando Prisma ORM com MySQL e PostgreSQL.
         <br><br>
@@ -126,11 +126,6 @@ const roleProfiles = {
         'Node.js',
         'TypeScript',
         'JavaScript',
-        'Python',
-        'Docker compose',
-        'Yolo',
-        'OpenCV',
-        'Mideapipe',
         'APIs REST',
         'Express.js',
         'Prisma ORM',
@@ -143,7 +138,11 @@ const roleProfiles = {
         'Clean Architecture',
         'Integração de Sistemas',
         'Nginx',
-        'PM2'
+        'PM2',
+        'Python',
+        'OpenCV',
+        'YOLO',
+        'Docker'
       ],
       projects: [
         {
@@ -193,7 +192,6 @@ const roleProfiles = {
         'JavaScript',
         'HTML5',
         'CSS3',
-        'Angular',
         'APIs REST',
         'Componentização',
         'Responsividade',
@@ -234,7 +232,7 @@ const roleProfiles = {
 
     fullstack: {
       headline: 'Desenvolvedor Full Stack | Node.js | React | TypeScript | APIs REST | MySQL | PostgreSQL | Prisma | AWS',
-      summary: 'Desenvolvedor Full Stack com experiência em sistemas integrados, dados em tempo real e soluções voltadas para eficiência operacional.',
+      summary: 'Desenvolvedor Full Stack focado em resolver problemas operacionais através de sistemas integrados, automação de processos e uso estratégico de dados em tempo real.',
       resumoContent: `
         Havia falta de controle e visibilidade sobre produção, atividades e andamento de projetos; desenvolvi sistemas integrando front-end, back-end e banco de dados para centralizar informações operacionais; isso aumentou a visibilidade da operação e apoiou decisões mais rápidas e assertivas; utilizando Node.js, React, TypeScript, MySQL e PostgreSQL.
         <br><br>
@@ -250,13 +248,7 @@ const roleProfiles = {
         'JavaScript',
         'TypeScript',
         'Node.js',
-        'Python',
-        'Docker compose',
-        'Yolo',
-        'OpenCV',
-        'Mideapipe',
         'React',
-        'Angular',
         'Express.js',
         'APIs REST',
         'Prisma ORM',
@@ -268,7 +260,11 @@ const roleProfiles = {
         'Integração de Sistemas',
         'Deploy',
         'Nginx',
-        'PM2'
+        'PM2',
+        'Python',
+        'OpenCV',
+        'YOLO',
+        'Docker'
       ],
       projects: [
         {
@@ -324,15 +320,14 @@ const roleProfiles = {
         'React Native',
         'Expo',
         'JavaScript',
-        'TypeScript',
-        'Clean Architecture',
         'APIs REST',
         'Navegação',
         'Componentização',
         'Integração com Serviços',
         'Git',
         'Aplicações Mobile',
-        'UX Mobile'
+        'UX Mobile',
+        'Clean Architecture'
       ],
       projects: [
         {
@@ -394,7 +389,11 @@ const roleProfiles = {
         'Layered Architecture',
         'Systems Integration',
         'Nginx',
-        'PM2'
+        'PM2',
+        'Python',
+        'OpenCV',
+        'YOLO',
+        'Docker'
       ],
       projects: [
         {
