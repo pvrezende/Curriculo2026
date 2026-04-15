@@ -43,15 +43,15 @@ const translations = {
     job1Title: 'Desenvolvedor Full Stack — Delta Solutions',
     job1Date: 'Março/2025 – Atual',
     job1List: `
-      <li>A operação não possuía visibilidade centralizada sobre produção e atividades; desenvolvi e mantive aplicações web integrando Node.js, React e bancos relacionais; isso aumentou a confiabilidade das informações e melhorou o acompanhamento operacional em tempo real.</li>
-      <li>Havia retrabalho e baixa integração entre sistemas; implementei APIs REST para comunicação entre serviços e automação de processos internos, reduzindo etapas manuais e melhorando a eficiência operacional.</li>
-      <li>A camada de dados precisava de mais organização e manutenção; utilizei Prisma ORM para modelagem e manipulação padronizada de dados, melhorando legibilidade, produtividade e manutenção do código.</li>
-      <li>O ambiente exigia disponibilidade e escalabilidade; administrei infraestrutura em AWS (EC2, RDS e S3), garantindo continuidade dos serviços e melhor suporte ao crescimento das aplicações.</li>
-      <li>O processo de deploy e execução precisava de maior estabilidade; configurei Nginx, SSL/Certbot e PM2, aumentando segurança, disponibilidade e previsibilidade do ambiente.</li>
-      <li>Havia custo elevado na infraestrutura cloud; analisei uso de recursos e otimizei instâncias, reduzindo os custos operacionais em mais de 70% sem comprometer a estabilidade do sistema.</li>
-      <li>As aplicações precisavam evoluir com segurança; atuei continuamente em estabilidade, segurança e melhoria de aplicações e bancos de dados, aumentando confiabilidade e sustentação do ambiente.</li>
-    `
-  },
+      <li>A operação não possuía visibilidade centralizada sobre produção e atividades; desenvolvi e mantive aplicações web integrando front-end, back-end e bancos relacionais; isso aumentou a confiabilidade das informações e melhorou o acompanhamento operacional em tempo real; utilizando Node.js, React, MySQL e PostgreSQL.</li>
+      <li>Havia retrabalho e baixa integração entre sistemas; implementei APIs REST para comunicação entre serviços e automação de processos internos; isso reduziu etapas manuais, aumentou a eficiência operacional e melhorou a consistência dos dados; utilizando Node.js, TypeScript e arquitetura de APIs.</li>
+      <li>A camada de dados precisava de mais organização e manutenção; padronizei a modelagem e o acesso aos dados com ORM; isso melhorou a legibilidade do código, produtividade da equipe e facilidade de manutenção; utilizando Prisma ORM com MySQL e PostgreSQL.</li>
+      <li>O ambiente exigia disponibilidade e escalabilidade; administrei e configurei infraestrutura em cloud; isso garantiu continuidade dos serviços e suporte ao crescimento das aplicações; utilizando AWS (EC2, RDS, S3), Nginx e PM2.</li>
+      <li>O processo de deploy e execução precisava de maior estabilidade; estruturei o ambiente de deploy com configuração de proxy, SSL e gerenciamento de processos; isso aumentou segurança, disponibilidade e previsibilidade do ambiente; utilizando Nginx, Certbot e PM2.</li>
+      <li>Havia custo elevado na infraestrutura cloud; analisei uso de recursos e reconfigurei instâncias e serviços; isso reduziu os custos operacionais em mais de 70% sem comprometer a estabilidade do sistema; utilizando AWS e otimização de recursos.</li>
+      <li>As aplicações precisavam evoluir com segurança e padronização; atuei continuamente na melhoria de código, estrutura e banco de dados; isso aumentou a confiabilidade, escalabilidade e sustentação do ambiente; utilizando boas práticas de arquitetura e versionamento com Git.</li>
+      <li>Havia necessidade de evolução tecnológica e alinhamento com padrões corporativos; desenvolvi e estudei aplicações back-end utilizando Java e Spring Boot integradas a APIs e bancos de dados; isso ampliou minha capacidade de atuar em sistemas enterprise e arquiteturas escaláveis; utilizando Java, Spring Boot, APIs REST e integração com MySQL/PostgreSQL.</li>`
+        },
 
   en: {
     printBtn: 'Download / Print PDF',
@@ -94,12 +94,14 @@ const translations = {
 const roleOptions = {
   pt: {
     backend: 'Back-end',
+    backend_java: 'Back-end Java',
     frontend: 'Front-end',
     fullstack: 'Full Stack',
     mobile: 'Mobile'
   },
   en: {
     backend: 'Back-end',
+    backend_java: 'Java Back-end',
     frontend: 'Front-end',
     fullstack: 'Full Stack',
     mobile: 'Mobile'
@@ -168,6 +170,50 @@ const roleProfiles = {
           highlights: 'integração técnica, análise visual e fluxo de inspeção',
           link: 'https://github.com/pvrezende/TuboVision',
           linkLabel: 'GitHub'
+        }
+      ]
+    },
+
+    backend_java: {
+      headline: 'Desenvolvedor Back-end Java | Spring Boot | APIs REST | Angular | MySQL | PostgreSQL',
+
+      summary: 'Desenvolvedor Back-end em formação com foco em aplicações Java utilizando Spring Boot, integração de sistemas e construção de APIs escaláveis.',
+
+      resumoContent: `
+        Havia necessidade de expandir conhecimentos para arquiteturas corporativas amplamente utilizadas no mercado; desenvolvi aplicações back-end utilizando Java e Spring Boot com foco em boas práticas e estruturação de APIs; isso ampliou minha capacidade de atuar em ambientes enterprise e sistemas mais robustos; utilizando Java, Spring Boot e APIs REST.
+        <br><br>
+        Sistemas demandavam integração eficiente entre front-end e back-end; implementei comunicação entre aplicações Java e interfaces web; isso melhorou a compreensão de fluxo completo de dados e integração entre camadas; utilizando Spring Boot, Angular e APIs REST.
+        <br><br>
+        A organização do código e padronização de arquitetura eram essenciais para escalabilidade; estruturei aplicações seguindo princípios de camadas e boas práticas; isso aumentou a legibilidade, manutenção e evolução dos sistemas; utilizando Spring Boot e arquitetura em camadas.
+        <br><br>
+        Era necessário evoluir conhecimento em tecnologias amplamente utilizadas no mercado corporativo; participei de projetos e estudos práticos no INDT; isso fortaleceu minha base técnica e ampliou minha capacidade de atuar em novos cenários tecnológicos; utilizando Java, Spring Boot e Angular.
+      `,
+
+      footerSub: 'Disponível para oportunidades em Desenvolvimento Back-end Java',
+
+      fileName: 'Paulo-Rezende-Curriculo-Backend-Java',
+
+      tags: [
+        'Java',
+        'Spring Boot',
+        'APIs REST',
+        'Arquitetura em Camadas',
+        'MySQL',
+        'PostgreSQL',
+        'Integração de Sistemas',
+        'Angular',
+        'Git',
+        'Boas práticas'
+      ],
+
+      projects: [
+        {
+          title: 'Smart Pet — Sistema Full Stack para Gestão de Pet Shop',
+          description: 'Sistema de gestão para pet shop com dashboard gerencial, controle de produtos, cadastro de clientes e módulo de vendas (PDV), desenvolvido com foco em organização operacional, controle de estoque e usabilidade.',
+          technologies: 'Java, Spring Boot, Angular, APIs REST, MySQL',
+          highlights: 'dashboard com indicadores, CRUD de produtos e clientes, controle de estoque, alertas de estoque baixo, carrinho de compras, cálculo de subtotal/desconto/valor final e integração completa entre front-end e back-end',
+          link: 'https://github.com/pvrezende/Smart-Pet',
+          linkLabel: 'Em desenvolvimento'
         }
       ]
     },
@@ -423,6 +469,50 @@ const roleProfiles = {
       ]
     },
 
+    backend_java: {
+      headline: 'Java Back-end Developer | Spring Boot | REST APIs | Angular | MySQL | PostgreSQL',
+
+      summary: 'Back-end Developer focused on Java applications using Spring Boot, system integration, and scalable API development.',
+
+      resumoContent: `
+        There was a need to expand knowledge into enterprise-level architectures; I developed back-end applications using Java and Spring Boot with a focus on best practices and API structuring; this improved my ability to work with scalable and robust systems; using Java, Spring Boot, and REST APIs.
+        <br><br>
+        Systems required efficient integration between front-end and back-end; I implemented communication between Java applications and web interfaces; this improved understanding of full data flow and system integration; using Spring Boot, Angular, and REST APIs.
+        <br><br>
+        Code organization and architecture standardization were essential for scalability; I structured applications using layered architecture and best practices; this improved maintainability and scalability; using Spring Boot and layered architecture.
+        <br><br>
+        It was important to evolve knowledge in widely used enterprise technologies; I worked on practical projects and studies at INDT; this strengthened my technical foundation and expanded my ability to work with new technologies; using Java, Spring Boot, and Angular.
+      `,
+
+      footerSub: 'Available for Java Back-end opportunities',
+
+      fileName: 'Paulo-Rezende-Resume-Backend-Java',
+
+      tags: [
+        'Java',
+        'Spring Boot',
+        'REST APIs',
+        'Layered Architecture',
+        'MySQL',
+        'PostgreSQL',
+        'System Integration',
+        'Angular',
+        'Git',
+        'Best Practices'
+      ],
+
+      projects: [
+        {
+          title: 'Smart Pet — Full Stack Pet Shop Management System',
+          description: 'Management system for a pet shop with a business dashboard, product control, customer registration, and a point-of-sale (POS) module, developed with a focus on operational organization, inventory control, and usability.',
+          technologies: 'Java, Spring Boot, Angular, REST APIs, MySQL',
+          highlights: 'dashboard with key indicators, product and customer CRUD, inventory control, low-stock alerts, shopping cart, subtotal/discount/final amount calculation, and full front-end/back-end integration',
+          link: 'https://github.com/pvrezende/Smart-Pet',
+          linkLabel: 'In progress'
+        }
+      ]
+    },
+
     frontend: {
       headline: 'Front-end Developer | React | TypeScript | JavaScript | REST APIs | Responsive Interfaces',
       summary: 'Front-end Developer with experience in data visualization, responsive interfaces, and API integration to support operational workflows.',
@@ -617,7 +707,9 @@ function getSavedLang() {
 
 function getSavedRole() {
   const saved = localStorage.getItem(ROLE_KEY);
-  return ['backend', 'frontend', 'fullstack', 'mobile'].includes(saved) ? saved : 'fullstack';
+  return ['backend', 'backend_java', 'frontend', 'fullstack', 'mobile'].includes(saved)
+    ? saved
+    : 'fullstack';
 }
 
 function applyTheme(theme) {
