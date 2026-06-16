@@ -10,6 +10,7 @@ const heroTagsEl = document.getElementById('heroTags');
 const resumoContentEl = document.getElementById('resumoContent');
 const footerSubEl = document.getElementById('footerSub');
 const projectsContainerEl = document.getElementById('projectsContainer');
+const careerObjectiveEl = document.getElementById('careerObjective');
 
 const THEME_KEY = 'curriculo_2026_theme';
 const LANG_KEY = 'curriculo_2026_lang';
@@ -19,8 +20,6 @@ const translations = {
   pt: {
     printBtn: 'Baixar / Imprimir PDF',
     availability: 'Disponível para vagas presenciais, híbridas e remotas',
-    skillApi: 'Consumo de APIs REST',
-    skillIntegration: 'Integração Front-end / Back-end',
     contactTitle: 'Contato',
     phoneLabel: 'Telefone:',
     locationLabel: 'Localização:',
@@ -32,15 +31,13 @@ const translations = {
     projectsTitle: 'Projetos em Destaque',
     techLabel: 'Tecnologias:',
     highlightLabel: 'Destaques:',
-    repoLink: 'Repositório no GitHub',
-    accessProject: 'Acessar projeto',
-    accessPortfolio: 'Acessar portfólio',
     eduTitle: 'Formação',
     coursesTitle: 'Cursos',
+    focusTitle: 'Objetivo Profissional',
     courseOngoing: 'Desenvolvimento Full-Stack — INDT (350 hrs)',
     courseCetam: 'Informática Básica e Avançada — CETAM',
     footerText: 'Currículo — Paulo Victor Rezende Virginio',
-    job1Title: 'Desenvolvedor Full Stack — Delta Solutions',
+    job1Title: 'Desenvolvedor Full Stack Jr — Delta Solutions',
     job1Date: 'Março/2025 – Atual',
     job1List: `
       <li>A operação não possuía visibilidade centralizada sobre produção e atividades; desenvolvi e mantive aplicações web integrando front-end, back-end e bancos relacionais; isso aumentou a confiabilidade das informações e melhorou o acompanhamento operacional em tempo real; utilizando Node.js, React, MySQL e PostgreSQL.</li>
@@ -50,14 +47,12 @@ const translations = {
       <li>O processo de deploy e execução precisava de maior estabilidade; estruturei o ambiente de deploy com configuração de proxy, SSL e gerenciamento de processos; isso aumentou segurança, disponibilidade e previsibilidade do ambiente; utilizando Nginx, Certbot e PM2.</li>
       <li>Havia custo elevado na infraestrutura cloud; analisei uso de recursos e reconfigurei instâncias e serviços; isso reduziu os custos operacionais em mais de 70% sem comprometer a estabilidade do sistema; utilizando AWS e otimização de recursos.</li>
       <li>As aplicações precisavam evoluir com segurança e padronização; atuei continuamente na melhoria de código, estrutura e banco de dados; isso aumentou a confiabilidade, escalabilidade e sustentação do ambiente; utilizando boas práticas de arquitetura e versionamento com Git.</li>
-      <li>Havia necessidade de evolução tecnológica e alinhamento com padrões corporativos; desenvolvi e estudei aplicações back-end utilizando Java e Spring Boot integradas a APIs e bancos de dados; isso ampliou minha capacidade de atuar em sistemas enterprise e arquiteturas escaláveis; utilizando Java, Spring Boot, APIs REST e integração com MySQL/PostgreSQL.</li>`
-        },
-
+      <li>Havia necessidade de evolução tecnológica e alinhamento com padrões corporativos; desenvolvi e estudei aplicações back-end utilizando Java e Spring Boot integradas a APIs e bancos de dados; isso ampliou minha capacidade de atuar em sistemas enterprise e arquiteturas escaláveis; utilizando Java, Spring Boot, APIs REST e integração com MySQL/PostgreSQL.</li>
+    `
+  },
   en: {
     printBtn: 'Download / Print PDF',
     availability: 'Available for on-site, hybrid, and remote positions',
-    skillApi: 'REST API Consumption',
-    skillIntegration: 'Front-end / Back-end Integration',
     contactTitle: 'Contact',
     phoneLabel: 'Phone:',
     locationLabel: 'Location:',
@@ -69,631 +64,444 @@ const translations = {
     projectsTitle: 'Featured Projects',
     techLabel: 'Technologies:',
     highlightLabel: 'Highlights:',
-    repoLink: 'GitHub Repository',
-    accessProject: 'Access Project',
-    accessPortfolio: 'Access Portfolio',
     eduTitle: 'Education',
     coursesTitle: 'Courses',
+    focusTitle: 'Professional Objective',
     courseOngoing: 'Full-Stack Development — INDT (350 hrs)',
     courseCetam: 'Basic and Advanced IT — CETAM',
     footerText: 'Resume — Paulo Victor Rezende Virginio',
-    job1Title: 'Full Stack Developer — Delta Solutions',
+    job1Title: 'Junior Full Stack Developer — Delta Solutions',
     job1Date: 'March/2025 – Present',
     job1List: `
-      <li>I worked in a scenario where operational information needed to be centralized; I developed and maintained web applications integrating Node.js, React, and relational databases, increasing the reliability of the operational data flow.</li>
-      <li>There was rework and weak system integration; I implemented REST APIs for communication between services and internal process automation, reducing manual steps and improving operational efficiency.</li>
-      <li>The data layer needed better organization and maintainability; I used Prisma ORM for standardized data modeling and manipulation, improving code readability, productivity, and maintainability.</li>
-      <li>The environment required availability and scalability; I managed AWS infrastructure (EC2, RDS, and S3), ensuring service continuity and better support for application growth.</li>
-      <li>The deployment and execution process needed more stability; I configured Nginx, SSL/Certbot, and PM2, increasing security, availability, and environment reliability.</li>
-      <li>Cloud infrastructure costs were too high; I analyzed resource usage and optimized instances, reducing operating costs by more than 70% without compromising system stability.</li>
-      <li>The applications needed to evolve safely; I continuously worked on application and database stability, security, and improvements, increasing reliability and long-term maintainability.</li>
+      <li>The operation lacked centralized visibility over production and activities; I developed and maintained web applications integrating front-end, back-end, and relational databases; this increased information reliability and improved real-time operational monitoring; using Node.js, React, MySQL, and PostgreSQL.</li>
+      <li>There was rework and weak integration between systems; I implemented REST APIs for service communication and internal process automation; this reduced manual steps, increased operational efficiency, and improved data consistency; using Node.js, TypeScript, and API architecture.</li>
+      <li>The data layer required better organization and maintainability; I standardized data modeling and access with ORM; this improved code readability, team productivity, and long-term maintenance; using Prisma ORM with MySQL and PostgreSQL.</li>
+      <li>The environment required availability and scalability; I managed and configured cloud infrastructure; this ensured service continuity and supported application growth; using AWS (EC2, RDS, S3), Nginx, and PM2.</li>
+      <li>The deployment and execution process needed more stability; I structured the deployment environment with proxy, SSL, and process management; this increased security, availability, and predictability; using Nginx, Certbot, and PM2.</li>
+      <li>Cloud infrastructure costs were high; I analyzed resource usage and reconfigured instances and services; this reduced operating costs by more than 70% without compromising system stability; using AWS and resource optimization.</li>
+      <li>Applications needed to evolve with safety and standardization; I continuously improved code, structure, and databases; this increased reliability, scalability, and environment support; using architecture best practices and Git versioning.</li>
+      <li>There was a need for technological evolution and alignment with corporate standards; I developed and studied back-end applications using Java and Spring Boot integrated with APIs and databases; this expanded my ability to work with enterprise systems and scalable architectures; using Java, Spring Boot, REST APIs, and MySQL/PostgreSQL integration.</li>
     `
   }
 };
 
 const roleOptions = {
   pt: {
-    backend: 'Back-end',
-    backend_java: 'Back-end Java',
-    frontend: 'Front-end',
     fullstack: 'Full Stack',
-    mobile: 'Mobile'
+    backend_node: 'Back-end Node.js',
+    frontend: 'Front-end',
+    python_ai: 'Python / IA',
+    java_spring: 'Java / Spring Boot',
+    mobile: 'Mobile React Native'
   },
   en: {
-    backend: 'Back-end',
-    backend_java: 'Java Back-end',
-    frontend: 'Front-end',
     fullstack: 'Full Stack',
-    mobile: 'Mobile'
+    backend_node: 'Node.js Back-end',
+    frontend: 'Front-end',
+    python_ai: 'Python / AI',
+    java_spring: 'Java / Spring Boot',
+    mobile: 'React Native Mobile'
+  }
+};
+
+const sharedProjects = {
+  pt: {
+    tubovision: {
+      title: 'TuboVision Capilar — Inspeção Industrial com IA',
+      description: 'Sistema de visão computacional para inspeção automatizada de capilares em ambiente industrial, com processamento de imagens, classificação de peças e integração software + hardware.',
+      technologies: 'Python, OpenCV, FastAPI, SQLite, WebSocket',
+      highlights: 'inspeção visual, IA aplicada à indústria, processamento em tempo real, integração com câmeras industriais e dashboards operacionais',
+      link: 'https://github.com/pvrezende/TuboVision',
+      linkLabel: 'GitHub'
+    },
+    dashboard: {
+      title: 'Dashboard de Produção Industrial',
+      description: 'Sistema Full Stack para monitoramento de produção, indicadores operacionais, OEE e acompanhamento de dados em tempo real.',
+      technologies: 'Node.js, JavaScript, MySQL, AWS, APIs REST, Chart.js',
+      highlights: 'dashboards corporativos, indicadores de produção, deploy em AWS, APIs REST e evolução contínua da aplicação',
+      link: 'http://98.84.113.180:3000/',
+      linkLabel: 'Dashboard'
+    },
+    controle: {
+      title: 'Controle de Gastos — Web + Mobile',
+      description: 'Aplicação para controle financeiro pessoal, gestão de receitas e despesas, com experiência mobile e integração com back-end.',
+      technologies: 'React Native, Expo, Expo Go, Node.js, JWT, APIs REST, JavaScript',
+      highlights: 'aplicação mobile multiplataforma, autenticação JWT, consumo de APIs, controle financeiro e integração Full Stack',
+      link: 'https://controle-de-gastos-app.vercel.app/',
+      linkLabel: 'Projeto'
+    },
+    smartpet: {
+      title: 'Smart Pet — Sistema Full Stack para Pet Shop',
+      description: 'Sistema de gestão para pet shop com dashboard gerencial, produtos, clientes e módulo de vendas, desenvolvido como projeto Java/Spring Boot + Angular.',
+      technologies: 'Java, Spring Boot, Angular, TypeScript, MySQL, APIs REST',
+      highlights: 'CRUD, dashboard, controle de estoque, arquitetura back-end, integração front-end/back-end e evolução de funcionalidades',
+      link: 'https://github.com/pvrezende/Smart-Pet',
+      linkLabel: 'GitHub'
+    }
+  },
+  en: {
+    tubovision: {
+      title: 'TuboVision Capilar — Industrial Inspection with AI',
+      description: 'Computer vision system for automated capillary inspection in an industrial environment, with image processing, part classification, and software + hardware integration.',
+      technologies: 'Python, OpenCV, FastAPI, SQLite, WebSocket',
+      highlights: 'visual inspection, industrial AI, real-time processing, industrial camera integration, and operational dashboards',
+      link: 'https://github.com/pvrezende/TuboVision',
+      linkLabel: 'GitHub'
+    },
+    dashboard: {
+      title: 'Industrial Production Dashboard',
+      description: 'Full Stack system for production monitoring, operational indicators, OEE, and real-time data tracking.',
+      technologies: 'Node.js, JavaScript, MySQL, AWS, REST APIs, Chart.js',
+      highlights: 'corporate dashboards, production indicators, AWS deployment, REST APIs, and continuous application evolution',
+      link: 'http://98.84.113.180:3000/',
+      linkLabel: 'Dashboard'
+    },
+    controle: {
+      title: 'Expense Tracker — Web + Mobile',
+      description: 'Application for personal financial control, income and expense management, with mobile experience and back-end integration.',
+      technologies: 'React Native, Expo, Expo Go, Node.js, JWT, REST APIs, JavaScript',
+      highlights: 'cross-platform mobile app, JWT authentication, API consumption, financial control, and Full Stack integration',
+      link: 'https://controle-de-gastos-app.vercel.app/',
+      linkLabel: 'Project'
+    },
+    smartpet: {
+      title: 'Smart Pet — Full Stack Pet Shop System',
+      description: 'Pet shop management system with business dashboard, products, customers, and sales module, developed as a Java/Spring Boot + Angular project.',
+      technologies: 'Java, Spring Boot, Angular, TypeScript, MySQL, REST APIs',
+      highlights: 'CRUD, dashboard, inventory control, back-end architecture, front-end/back-end integration, and feature evolution',
+      link: 'https://github.com/pvrezende/Smart-Pet',
+      linkLabel: 'GitHub'
+    }
   }
 };
 
 const roleProfiles = {
   pt: {
-    backend: {
-      headline: 'Desenvolvedor Back-end | Node.js | APIs REST | Prisma | MySQL | PostgreSQL | AWS',
-      summary: 'Desenvolvedor Back-end com experiência em integração de sistemas, modelagem de dados e construção de serviços voltados para eficiência operacional.',
-      resumoContent: `
-        Havia falta de padronização no acesso e processamento de dados entre sistemas internos; projetei e desenvolvi APIs REST para centralizar, processar e distribuir informações em tempo real; isso reduziu inconsistências, aumentou a confiabilidade dos dados e melhorou a comunicação entre sistemas; utilizando Node.js, TypeScript, Express, MySQL e PostgreSQL.
-        <br><br>
-        Processos operacionais dependiam de etapas manuais sujeitas a erro; implementei integrações e automações no back-end; isso reduziu retrabalho, aumentou a eficiência operacional e melhorou a confiabilidade dos dados; utilizando Node.js, APIs REST e integrações entre serviços.
-        <br><br>
-        O banco de dados apresentava gargalos de organização e performance em consultas; reestruturei modelagem, padronizei acesso a dados e otimizei operações de leitura e escrita; isso melhorou a performance das consultas, facilitou manutenção e aumentou a escalabilidade da aplicação; utilizando Prisma ORM com MySQL e PostgreSQL.
-        <br><br>
-        A infraestrutura em nuvem tinha custo elevado e uso ineficiente de recursos; analisei consumo, reconfigurei instâncias e otimizei a utilização dos serviços; isso reduziu os custos operacionais em mais de 70% sem comprometer estabilidade e desempenho; utilizando AWS, EC2, RDS, S3, Nginx e PM2.
-      `,
-      footerSub: 'Disponível para oportunidades em Desenvolvimento Back-end',
-      fileName: 'Paulo-Rezende-Curriculo-Backend',
-      tags: [
-        'Node.js',
-        'TypeScript',
-        'JavaScript',
-        'APIs REST',
-        'Express.js',
-        'Prisma ORM',
-        'MySQL',
-        'PostgreSQL',
-        'AWS',
-        'EC2',
-        'RDS',
-        'S3',
-        'Clean Architecture',
-        'Integração de Sistemas',
-        'Nginx',
-        'PM2',
-        'Python',
-        'OpenCV',
-        'YOLO',
-        'Docker'
-      ],
-      projects: [
-        {
-          title: 'Dashboard de Produção',
-          description: 'Sistema com backend integrado a banco de dados e operação em tempo real.',
-          technologies: 'Node.js, MySQL, AWS',
-          highlights: 'APIs, banco de dados, integração e suporte operacional',
-          link: 'http://98.84.113.180:3000/',
-          linkLabel: 'Dashboard'
-        },
-        {
-          title: 'Arcon',
-          description: 'Sistema com arquitetura limpa, integração entre serviços e persistência de dados.',
-          technologies: 'Node.js, PostgreSQL, Prisma',
-          highlights: 'APIs REST, backend estruturado e organização de dados',
-          link: 'https://github.com/pvrezende/Arcon.git',
-          linkLabel: 'GitHub'
-        },
-        {
-          title: 'TuboVision — Sistema de Inspeção Industrial com IA',
-          description: 'Projeto de visão computacional voltado para inspeção de capilares em ambiente industrial.',
-          technologies: 'Python, OpenCV, YOLO, Docker e API REST',
-          highlights: 'integração técnica, análise visual e fluxo de inspeção',
-          link: 'https://github.com/pvrezende/TuboVision',
-          linkLabel: 'GitHub'
-        }
-      ]
-    },
-
-    backend_java: {
-      headline: 'Desenvolvedor Back-end Java | Spring Boot | APIs REST | Angular | MySQL | PostgreSQL',
-
-      summary: 'Desenvolvedor Back-end em formação com foco em aplicações Java utilizando Spring Boot, integração de sistemas e construção de APIs escaláveis.',
-
-      resumoContent: `
-        Havia necessidade de expandir conhecimentos para arquiteturas corporativas amplamente utilizadas no mercado; desenvolvi aplicações back-end utilizando Java e Spring Boot com foco em boas práticas e estruturação de APIs; isso ampliou minha capacidade de atuar em ambientes enterprise e sistemas mais robustos; utilizando Java, Spring Boot e APIs REST.
-        <br><br>
-        Sistemas demandavam integração eficiente entre front-end e back-end; implementei comunicação entre aplicações Java e interfaces web; isso melhorou a compreensão de fluxo completo de dados e integração entre camadas; utilizando Spring Boot, Angular e APIs REST.
-        <br><br>
-        A organização do código e padronização de arquitetura eram essenciais para escalabilidade; estruturei aplicações seguindo princípios de camadas e boas práticas; isso aumentou a legibilidade, manutenção e evolução dos sistemas; utilizando Spring Boot e arquitetura em camadas.
-        <br><br>
-        Era necessário evoluir conhecimento em tecnologias amplamente utilizadas no mercado corporativo; participei de projetos e estudos práticos no INDT; isso fortaleceu minha base técnica e ampliou minha capacidade de atuar em novos cenários tecnológicos; utilizando Java, Spring Boot e Angular.
-      `,
-
-      footerSub: 'Disponível para oportunidades em Desenvolvimento Back-end Java',
-
-      fileName: 'Paulo-Rezende-Curriculo-Backend-Java',
-
-      tags: [
-        'Java',
-        'Spring Boot',
-        'APIs REST',
-        'Arquitetura em Camadas',
-        'MySQL',
-        'PostgreSQL',
-        'Integração de Sistemas',
-        'Angular',
-        'Git',
-        'Boas práticas'
-      ],
-
-      projects: [
-        {
-          title: 'Smart Pet — Sistema Full Stack para Gestão de Pet Shop',
-          description: 'Sistema de gestão para pet shop com dashboard gerencial, controle de produtos, cadastro de clientes e módulo de vendas (PDV), desenvolvido com foco em organização operacional, controle de estoque e usabilidade.',
-          technologies: 'Java, Spring Boot, Angular, APIs REST, MySQL',
-          highlights: 'dashboard com indicadores, CRUD de produtos e clientes, controle de estoque, alertas de estoque baixo, carrinho de compras, cálculo de subtotal/desconto/valor final e integração completa entre front-end e back-end',
-          link: 'https://github.com/pvrezende/Smart-Pet',
-          linkLabel: 'Em desenvolvimento'
-        }
-      ]
-    },
-
-    frontend: {
-      headline: 'Desenvolvedor Front-end | React | TypeScript | JavaScript | APIs REST | Interfaces Responsivas',
-      summary: 'Desenvolvedor Front-end com experiência em visualização de dados, interfaces responsivas e integração com APIs para apoiar a operação.',
-      resumoContent: `
-        Havia baixa visibilidade sobre produção, atividades e andamento de processos internos; desenvolvi dashboards e interfaces web com atualização em tempo real para centralizar essas informações; isso melhorou a leitura operacional e apoiou a tomada de decisão baseada em dados; utilizando React, TypeScript, JavaScript, HTML, CSS e consumo de APIs REST.
-        <br><br>
-        Usuários tinham dificuldade para entender carga de trabalho e distribuição de tarefas; criei interfaces para controle e visualização de atividades com navegação clara e leitura rápida; isso facilitou o acompanhamento das equipes e melhorou a experiência de uso dos sistemas; utilizando React, componentização e integração com back-end.
-        <br><br>
-        O front-end precisava evoluir com organização e facilidade de manutenção; estruturei aplicações em componentes reutilizáveis e organizei a comunicação com APIs; isso aumentou a escalabilidade do código, melhorou performance e reduziu esforço de manutenção; utilizando React, TypeScript, JavaScript e APIs REST.
-        <br><br>
-        Havia necessidade de interfaces mais estáveis e responsivas para uso contínuo na operação; trabalhei na estrutura visual, responsividade e separação de responsabilidades no front-end; isso elevou usabilidade, consistência e previsibilidade do sistema para os usuários; utilizando HTML5, CSS3, React e boas práticas de arquitetura limpa.
-      `,
-      footerSub: 'Disponível para oportunidades em Desenvolvimento Front-end',
-      fileName: 'Paulo-Rezende-Curriculo-Frontend',
-      tags: [
-        'React',
-        'TypeScript',
-        'JavaScript',
-        'HTML5',
-        'CSS3',
-        'APIs REST',
-        'Componentização',
-        'Responsividade',
-        'Integração com Back-end',
-        'UI',
-        'UX',
-        'Clean Architecture',
-        'Boas práticas',
-        'Git & GitHub'
-      ],
-      projects: [
-        {
-          title: 'Portfólio Profissional',
-          description: 'Website pessoal com foco em layout responsivo, apresentação visual e organização de conteúdo.',
-          technologies: 'HTML, CSS, JavaScript',
-          highlights: 'responsividade, UI e estrutura de interface',
-          link: 'https://portfolio-paulo-rezendes-projects.vercel.app/',
-          linkLabel: 'Acessar'
-        },
-        {
-          title: 'Dashboard de Produção Industrial',
-          description: 'Interface interativa com visualização de dados em tempo real e acompanhamento operacional.',
-          technologies: 'JavaScript, HTML, CSS, Chart.js',
-          highlights: 'visualização de dados, integração com APIs e UX',
-          link: 'http://98.84.113.180:3000/',
-          linkLabel: 'Dashboard'
-        },
-        {
-          title: 'Controle de Gastos',
-          description: 'Aplicação com foco em experiência do usuário, componentização e integração com serviços.',
-          technologies: 'React, JavaScript',
-          highlights: 'componentização, navegação e consumo de APIs',
-          link: 'https://controle-de-gastos-app.vercel.app/',
-          linkLabel: 'Projeto'
-        }
-      ]
-    },
-
     fullstack: {
-      headline: 'Desenvolvedor Full Stack | Node.js | React | TypeScript | APIs REST | MySQL | PostgreSQL | Prisma | AWS',
-      summary: 'Desenvolvedor Full Stack focado em resolver problemas operacionais através de sistemas integrados, automação de processos e uso estratégico de dados em tempo real.',
+      headline: 'Desenvolvedor Full Stack | Node.js | React | Angular | TypeScript | AWS | IA Industrial',
+      summary: 'Desenvolvedor Full Stack com experiência em sistemas corporativos, cloud, mobile, APIs REST, bancos de dados e soluções com IA aplicada à indústria.',
       resumoContent: `
-        Havia falta de controle e visibilidade sobre produção, atividades e andamento de projetos; desenvolvi sistemas integrando front-end, back-end e banco de dados para centralizar informações operacionais; isso aumentou a visibilidade da operação e apoiou decisões mais rápidas e assertivas; utilizando Node.js, React, TypeScript, MySQL e PostgreSQL.
+        Empresas precisavam de maior visibilidade sobre produção, atividades e entregas; desenvolvi sistemas completos integrando front-end, back-end, banco de dados e dashboards; isso centralizou informações operacionais, reduziu retrabalho e apoiou decisões em tempo real; utilizando Node.js, React, TypeScript, MySQL, PostgreSQL e Chart.js.
         <br><br>
-        Processos internos dependiam de comunicação fragmentada entre sistemas e equipes; projetei APIs REST e integrações entre serviços para processar e disponibilizar dados em tempo real; isso reduziu retrabalho, melhorou a organização das operações e aumentou a eficiência do fluxo de trabalho; utilizando Node.js, Express, Prisma e integrações entre sistemas.
+        Processos internos dependiam de integrações manuais e comunicação fragmentada; criei APIs REST e fluxos de integração entre sistemas; isso aumentou a eficiência operacional, melhorou a confiabilidade dos dados e tornou as entregas mais previsíveis; utilizando Node.js, Express, Prisma, APIs REST e AWS.
         <br><br>
-        A operação precisava de dashboards e controles internos mais claros para acompanhamento diário; construí interfaces e rotinas de processamento de dados voltadas para monitoramento em tempo real; isso melhorou a produtividade, a leitura operacional e a confiabilidade das informações utilizadas pela equipe; utilizando React, JavaScript, TypeScript e Chart.js.
+        Projetos exigiam soluções além do desenvolvimento web tradicional; participei da construção de sistemas com mobile, visão computacional e automação industrial; isso ampliou o impacto tecnológico das soluções e aproximou software, hardware e operação; utilizando React Native, Python, OpenCV, FastAPI e WebSocket.
         <br><br>
-        O ambiente de infraestrutura apresentava custo alto e oportunidade de otimização; revisei consumo, reconfigurei recursos e ajustei a infraestrutura cloud; isso reduziu os custos operacionais em mais de 70% mantendo estabilidade e desempenho das aplicações; utilizando AWS, EC2, RDS, S3, Nginx e PM2.
+        A infraestrutura em nuvem apresentava custo elevado; analisei consumo, reconfigurei recursos e ajustei serviços; isso reduziu os custos operacionais em mais de 70% mantendo estabilidade e desempenho; utilizando AWS EC2, RDS, S3, Nginx e PM2.
       `,
+      careerObjective: 'Construir soluções completas que resolvam problemas reais de negócio, unindo desenvolvimento front-end, back-end, dados, cloud e automação para gerar impacto operacional e apoiar decisões estratégicas.',
       footerSub: 'Disponível para oportunidades em Desenvolvimento Full Stack',
       fileName: 'Paulo-Rezende-Curriculo-Fullstack',
-      tags: [
-        'JavaScript',
-        'TypeScript',
-        'Node.js',
-        'React',
-        'Express.js',
-        'APIs REST',
-        'Prisma ORM',
-        'MySQL',
-        'PostgreSQL',
-        'AWS',
-        'Git & GitHub',
-        'Clean Architecture',
-        'Integração de Sistemas',
-        'Deploy',
-        'Nginx',
-        'PM2',
-        'Python',
-        'OpenCV',
-        'YOLO',
-        'Docker'
-      ],
-      projects: [
-        {
-          title: 'Arcon — Sistema Full Stack',
-          description: 'Projeto com integração completa entre front-end e back-end, arquitetura limpa e persistência de dados.',
-          technologies: 'Node.js, PostgreSQL, JavaScript, Prisma',
-          highlights: 'APIs REST, arquitetura e integração',
-          link: 'https://github.com/pvrezende/Arcon.git',
-          linkLabel: 'GitHub'
-        },
-        {
-          title: 'Dashboard de Produção',
-          description: 'Sistema web com dados em tempo real e suporte à operação industrial.',
-          technologies: 'Node.js, MySQL, AWS',
-          highlights: 'integração de dados, backend, frontend e visualização operacional',
-          link: 'http://98.84.113.180:3000/',
-          linkLabel: 'Dashboard'
-        },
-        {
-          title: 'Controle de Gastos',
-          description: 'Aplicação web + mobile com consumo de APIs e foco em experiência do usuário.',
-          technologies: 'React, Node.js, JavaScript',
-          highlights: 'full stack, APIs e integração',
-          link: 'https://controle-de-gastos-app.vercel.app/',
-          linkLabel: 'Projeto'
-        },
-        {
-          title: 'TuboVision — Sistema de Inspeção Industrial com IA',
-          description: 'Projeto de visão computacional voltado para inspeção de capilares em ambiente industrial.',
-          technologies: 'Python, OpenCV, YOLO, Docker e API REST',
-          highlights: 'visão computacional, integração técnica e fluxo de inspeção',
-          link: 'https://github.com/pvrezende/TuboVision',
-          linkLabel: 'GitHub'
-        }
-      ]
+      tags: ['React', 'Angular', 'TypeScript', 'Node.js', 'Express.js', 'APIs REST', 'Prisma ORM', 'MySQL', 'PostgreSQL', 'AWS', 'Docker', 'React Native', 'Python', 'OpenCV', 'Git & GitHub'],
+      projects: ['tubovision', 'dashboard', 'controle', 'smartpet'],
+      jobList: `
+        <li>Havia baixa visibilidade sobre produção, atividades e entregas; desenvolvi aplicações completas integrando front-end, back-end, banco de dados e dashboards; isso centralizou informações operacionais e melhorou a tomada de decisão em tempo real; utilizando Node.js, React, TypeScript, MySQL e PostgreSQL.</li>
+        <li>Processos internos dependiam de controles manuais e comunicação fragmentada; criei APIs REST e fluxos de integração entre sistemas; isso reduziu retrabalho, aumentou a confiabilidade dos dados e tornou as rotinas mais eficientes; utilizando Node.js, Express, Prisma e APIs REST.</li>
+        <li>A operação precisava de interfaces claras para acompanhamento diário; desenvolvi telas e dashboards para visualização de indicadores, atividades e status de processos; isso melhorou produtividade, leitura operacional e experiência dos usuários; utilizando React, JavaScript, TypeScript e Chart.js.</li>
+        <li>A infraestrutura em cloud apresentava custos elevados; analisei consumo, reconfigurei recursos e otimizei serviços; isso reduziu custos operacionais em mais de 70% mantendo estabilidade e desempenho; utilizando AWS EC2, RDS, S3, Nginx e PM2.</li>
+        <li>Projetos exigiam evolução técnica além do web tradicional; participei de soluções com mobile, visão computacional e integração software + hardware; isso ampliou o impacto das entregas e aproximou tecnologia da operação industrial; utilizando React Native, Python, OpenCV, FastAPI e WebSocket.</li>
+      `
     },
-
-    mobile: {
-      headline: 'Desenvolvedor Mobile | React Native | Expo | JavaScript | APIs REST',
-      summary: 'Desenvolvedor Mobile com experiência em aplicações integradas a APIs, organização de dados e experiência do usuário.',
+    backend_node: {
+      headline: 'Desenvolvedor Back-end Node.js | APIs REST | Express | NestJS | Prisma | AWS',
+      summary: 'Desenvolvedor Back-end com foco em APIs REST, integração de sistemas, bancos relacionais, automação de processos e infraestrutura cloud.',
       resumoContent: `
-        Usuários precisavam acompanhar e organizar informações de forma prática em dispositivos móveis; desenvolvi aplicações focadas em controle de dados, navegação simples e leitura clara das informações; isso melhorou a usabilidade e facilitou o gerenciamento de dados no dia a dia; utilizando React Native, Expo e JavaScript.
+        Sistemas internos possuíam baixa padronização no acesso e processamento de dados; desenvolvi APIs REST para centralizar, processar e disponibilizar informações; isso reduziu inconsistências e aumentou a confiabilidade das integrações; utilizando Node.js, Express, TypeScript, MySQL e PostgreSQL.
         <br><br>
-        Havia necessidade de sincronizar informações entre app e sistemas internos; implementei integração com APIs REST para envio e consumo de dados em tempo real; isso garantiu consistência das informações e melhor comunicação entre aplicação mobile e backend; utilizando React Native, APIs REST e serviços back-end.
+        Processos operacionais dependiam de etapas manuais sujeitas a erro; implementei integrações e automações no back-end; isso reduziu retrabalho, aumentou a eficiência operacional e melhorou a consistência dos dados; utilizando Node.js, APIs REST, JWT e integrações entre serviços.
         <br><br>
-        A aplicação precisava crescer com código organizado e fácil manutenção; estruturei componentes, navegação e responsabilidades do app de forma modular; isso melhorou performance, manutenção e evolução do projeto; utilizando React Native, Expo, componentização e boas práticas de organização.
+        A camada de dados precisava ser mais organizada e escalável; padronizei modelagem, acesso e manipulação de dados; isso melhorou manutenção, produtividade e performance das consultas; utilizando Prisma ORM, MySQL, PostgreSQL e TypeORM.
         <br><br>
-        Os usuários precisavam de uma experiência mais fluida para uso recorrente; trabalhei na organização de telas e no fluxo de navegação para reduzir fricção no uso do app; isso aumentou clareza, praticidade e eficiência na interação com o sistema; utilizando React Native, Expo e JavaScript.
+        O ambiente de produção exigia estabilidade e controle de recursos; configurei deploy, processos e servidores; isso melhorou disponibilidade e reduziu custos operacionais em mais de 70%; utilizando AWS EC2, RDS, S3, Docker, Nginx e PM2.
       `,
-      footerSub: 'Disponível para oportunidades em Desenvolvimento Mobile',
-      fileName: 'Paulo-Rezende-Curriculo-Mobile',
-      tags: [
-        'React Native',
-        'Expo',
-        'JavaScript',
-        'APIs REST',
-        'Navegação',
-        'Componentização',
-        'Integração com Serviços',
-        'Git',
-        'Aplicações Mobile',
-        'UX Mobile',
-        'Clean Architecture'
-      ],
-      projects: [
-        {
-          title: 'Controle de Gastos',
-          description: 'Aplicação mobile para gestão financeira com foco em navegação e integração com serviços.',
-          technologies: 'React Native, Expo',
-          highlights: 'mobile, APIs e navegação',
-          link: 'https://controle-de-gastos-app.vercel.app/',
-          linkLabel: 'Projeto'
-        },
-        {
-          title: 'Dashboard de Produção Industrial',
-          description: 'Integração com backend e APIs para consumo e visualização de dados.',
-          technologies: 'Node.js, MySQL',
-          highlights: 'consumo de dados e integração',
-          link: 'http://98.84.113.180:3000/',
-          linkLabel: 'Dashboard'
-        },
-        {
-          title: 'Arcon — Sistema Web Full Stack',
-          description: 'Projeto com integração entre front-end e back-end, consumo de APIs e organização em camadas.',
-          technologies: 'Node.js, JavaScript, PostgreSQL, Prisma',
-          highlights: 'integração de serviços, APIs REST e arquitetura',
-          link: 'https://github.com/pvrezende/Arcon.git',
-          linkLabel: 'GitHub'
-        }
-      ]
-    }
-  },
-
-  en: {
-    backend: {
-      headline: 'Back-end Developer | Node.js | REST APIs | Prisma | MySQL | PostgreSQL | AWS',
-      summary: 'Back-end Developer with experience in system integration, data modeling, and service development focused on operational efficiency.',
-      resumoContent: `
-        There was no standardized way to access and process data across internal systems; I designed and developed REST APIs to centralize, process, and distribute information in real time; this reduced inconsistencies, improved data reliability, and strengthened communication between systems; using Node.js, TypeScript, Express, MySQL, and PostgreSQL.
-        <br><br>
-        Operational processes depended on manual steps prone to errors and rework; I implemented system integrations and automated backend data flows; this increased operational efficiency, reduced manual tasks, and improved data consistency; using Node.js, REST APIs, and service integrations.
-        <br><br>
-        The database layer had organization and query performance bottlenecks; I restructured data modeling and standardized data access and write operations; this improved query performance, maintainability, and application scalability; using Prisma ORM with MySQL and PostgreSQL.
-        <br><br>
-        Cloud infrastructure had high costs and inefficient resource usage; I analyzed consumption, reconfigured instances, and optimized service utilization; this reduced operating costs by more than 70% without compromising system stability and performance; using AWS, EC2, RDS, S3, Nginx, and PM2.
-      `,
-      footerSub: 'Available for Back-end opportunities',
-      fileName: 'Paulo-Rezende-Resume-Backend',
-      tags: [
-        'Node.js',
-        'TypeScript',
-        'JavaScript',
-        'REST APIs',
-        'Express.js',
-        'Prisma ORM',
-        'MySQL',
-        'PostgreSQL',
-        'AWS',
-        'EC2',
-        'RDS',
-        'S3',
-        'Layered Architecture',
-        'Systems Integration',
-        'Nginx',
-        'PM2',
-        'Python',
-        'OpenCV',
-        'YOLO',
-        'Docker'
-      ],
-      projects: [
-        {
-          title: 'Production Dashboard',
-          description: 'System with a backend integrated to a database and real-time operation.',
-          technologies: 'Node.js, MySQL, AWS',
-          highlights: 'APIs, database, integration, and operational support',
-          link: 'http://98.84.113.180:3000/',
-          linkLabel: 'Dashboard'
-        },
-        {
-          title: 'Arcon',
-          description: 'System with layered architecture, service integration, and data persistence.',
-          technologies: 'Node.js, PostgreSQL, Prisma',
-          highlights: 'REST APIs, structured backend, and data organization',
-          link: 'https://github.com/pvrezende/Arcon.git',
-          linkLabel: 'GitHub'
-        },
-        {
-          title: 'TuboVision — Industrial Inspection System with AI',
-          description: 'Computer vision project focused on industrial capillary inspection.',
-          technologies: 'Python, OpenCV, YOLO, Docker and REST API',
-          highlights: 'technical integration, visual analysis, and inspection workflow',
-          link: 'https://github.com/pvrezende/TuboVision',
-          linkLabel: 'GitHub'
-        }
-      ]
-    },
-
-    backend_java: {
-      headline: 'Java Back-end Developer | Spring Boot | REST APIs | Angular | MySQL | PostgreSQL',
-
-      summary: 'Back-end Developer focused on Java applications using Spring Boot, system integration, and scalable API development.',
-
-      resumoContent: `
-        There was a need to expand knowledge into enterprise-level architectures; I developed back-end applications using Java and Spring Boot with a focus on best practices and API structuring; this improved my ability to work with scalable and robust systems; using Java, Spring Boot, and REST APIs.
-        <br><br>
-        Systems required efficient integration between front-end and back-end; I implemented communication between Java applications and web interfaces; this improved understanding of full data flow and system integration; using Spring Boot, Angular, and REST APIs.
-        <br><br>
-        Code organization and architecture standardization were essential for scalability; I structured applications using layered architecture and best practices; this improved maintainability and scalability; using Spring Boot and layered architecture.
-        <br><br>
-        It was important to evolve knowledge in widely used enterprise technologies; I worked on practical projects and studies at INDT; this strengthened my technical foundation and expanded my ability to work with new technologies; using Java, Spring Boot, and Angular.
-      `,
-
-      footerSub: 'Available for Java Back-end opportunities',
-
-      fileName: 'Paulo-Rezende-Resume-Backend-Java',
-
-      tags: [
-        'Java',
-        'Spring Boot',
-        'REST APIs',
-        'Layered Architecture',
-        'MySQL',
-        'PostgreSQL',
-        'System Integration',
-        'Angular',
-        'Git',
-        'Best Practices'
-      ],
-
-      projects: [
-        {
-          title: 'Smart Pet — Full Stack Pet Shop Management System',
-          description: 'Management system for a pet shop with a business dashboard, product control, customer registration, and a point-of-sale (POS) module, developed with a focus on operational organization, inventory control, and usability.',
-          technologies: 'Java, Spring Boot, Angular, REST APIs, MySQL',
-          highlights: 'dashboard with key indicators, product and customer CRUD, inventory control, low-stock alerts, shopping cart, subtotal/discount/final amount calculation, and full front-end/back-end integration',
-          link: 'https://github.com/pvrezende/Smart-Pet',
-          linkLabel: 'In progress'
-        }
-      ]
+      careerObjective: 'Atuar no desenvolvimento de serviços back-end escaláveis, APIs bem estruturadas e integrações que melhorem eficiência operacional, confiabilidade de dados e sustentação de sistemas em produção.',
+      footerSub: 'Disponível para oportunidades em Back-end Node.js',
+      fileName: 'Paulo-Rezende-Curriculo-Backend-Node',
+      tags: ['Node.js', 'Express.js', 'NestJS', 'TypeScript', 'APIs REST', 'JWT', 'Prisma ORM', 'TypeORM', 'MySQL', 'PostgreSQL', 'Docker', 'AWS', 'Nginx', 'PM2', 'Git'],
+      projects: ['dashboard', 'controle', 'smartpet'],
+      jobList: `
+        <li>Sistemas internos possuíam baixa padronização no acesso e processamento de dados; desenvolvi APIs REST para centralizar, processar e disponibilizar informações; isso reduziu inconsistências e aumentou a confiabilidade das integrações; utilizando Node.js, Express, TypeScript, MySQL e PostgreSQL.</li>
+        <li>Processos operacionais dependiam de etapas manuais sujeitas a erro; implementei integrações e automações no back-end; isso reduziu retrabalho, aumentou eficiência operacional e melhorou consistência dos dados; utilizando Node.js, APIs REST, JWT e integrações entre serviços.</li>
+        <li>A camada de dados precisava ser mais organizada e escalável; padronizei modelagem, acesso e manipulação de dados; isso melhorou manutenção, produtividade e performance de consultas; utilizando Prisma ORM, MySQL, PostgreSQL e TypeORM.</li>
+        <li>O ambiente de produção exigia estabilidade e controle de recursos; configurei deploy, servidores e gerenciamento de processos; isso aumentou disponibilidade e reduziu custos operacionais em mais de 70%; utilizando AWS EC2, RDS, S3, Docker, Nginx e PM2.</li>
+        <li>As aplicações precisavam evoluir com segurança e previsibilidade; atuei na melhoria contínua de APIs, estrutura de código e versionamento; isso aumentou confiabilidade, manutenção e sustentação dos sistemas; utilizando Git, boas práticas REST e arquitetura em camadas.</li>
+      `
     },
 
     frontend: {
-      headline: 'Front-end Developer | React | TypeScript | JavaScript | REST APIs | Responsive Interfaces',
-      summary: 'Front-end Developer with experience in data visualization, responsive interfaces, and API integration to support operational workflows.',
+      headline: 'Desenvolvedor Front-end | React | Angular | TypeScript | JavaScript | APIs REST',
+      summary: 'Desenvolvedor Front-end com experiência em interfaces responsivas, dashboards operacionais, visualização de dados e integração com APIs REST.',
       resumoContent: `
-        There was low visibility over production, activities, and process status; I developed dashboards and web interfaces with real-time updates to centralize this information; this improved operational awareness and supported data-driven decisions; using React, TypeScript, JavaScript, HTML, CSS, and REST API consumption.
+        Usuários precisavam acompanhar produção, atividades e indicadores de forma clara; desenvolvi interfaces web e dashboards para centralizar informações operacionais em tempo real; isso melhorou a leitura dos processos, apoiou decisões rápidas e reduziu dependência de controles manuais; utilizando React, TypeScript, JavaScript, HTML, CSS e Chart.js.
         <br><br>
-        Users had difficulty understanding workload and task distribution; I created interfaces for activity control and visualization with clearer navigation and information hierarchy; this improved team monitoring and overall user experience; using React, componentization, and back-end integration.
+        Sistemas internos exigiam melhor experiência de uso e organização visual; estruturei telas com foco em responsividade, hierarquia de informação e navegação objetiva; isso aumentou a usabilidade, facilitou o acompanhamento das atividades e tornou as rotinas mais práticas para os usuários; utilizando HTML5, CSS3, React e boas práticas de UI/UX.
         <br><br>
-        The front-end needed to evolve with better structure and maintainability; I organized applications into reusable components and standardized API communication; this improved scalability, performance, and ease of maintenance; using React, TypeScript, JavaScript, and REST APIs.
+        As interfaces precisavam consumir dados de diferentes serviços com confiabilidade; integrei o front-end a APIs REST e organizei a comunicação com o back-end; isso garantiu dados mais consistentes, atualização das informações e melhor integração entre camadas; utilizando APIs REST, JavaScript, TypeScript e integração front-end/back-end.
         <br><br>
-        The operation required more stable and responsive interfaces for daily use; I worked on visual structure, responsiveness, and separation of responsibilities in the front-end; this increased usability, consistency, and reliability for end users; using HTML5, CSS3, React, and layered architecture best practices.
+        Também evoluí conhecimentos em aplicações corporativas com Angular; desenvolvi telas e integrações em projetos Full Stack para reforçar domínio em frameworks front-end utilizados no mercado; isso ampliou minha aderência a vagas React e Angular; utilizando Angular, TypeScript, APIs REST e componentização.
       `,
-      footerSub: 'Available for Front-end opportunities',
-      fileName: 'Paulo-Rezende-Resume-Frontend',
-      tags: [
-        'React',
-        'TypeScript',
-        'JavaScript',
-        'HTML5',
-        'CSS3',
-        'REST APIs',
-        'Componentization',
-        'Responsive Design',
-        'Back-end Integration',
-        'UI',
-        'UX',
-        'Layered Architecture',
-        'Best Practices',
-        'Git & GitHub'
-      ],
-      projects: [
-        {
-          title: 'Professional Portfolio',
-          description: 'Personal website focused on responsive layout, visual presentation, and content organization.',
-          technologies: 'HTML, CSS, JavaScript',
-          highlights: 'responsiveness, UI, and interface structure',
-          link: 'https://portfolio-paulo-rezendes-projects.vercel.app/',
-          linkLabel: 'Access'
-        },
-        {
-          title: 'Industrial Production Dashboard',
-          description: 'Interactive interface with real-time data visualization and operational monitoring.',
-          technologies: 'JavaScript, HTML, CSS, Chart.js',
-          highlights: 'data visualization, API integration, and UX',
-          link: 'http://98.84.113.180:3000/',
-          linkLabel: 'Dashboard'
-        },
-        {
-          title: 'Expense Tracker',
-          description: 'Application focused on user experience, component organization, and service integration.',
-          technologies: 'React, JavaScript',
-          highlights: 'componentization, navigation, and API consumption',
-          link: 'https://controle-de-gastos-app.vercel.app/',
-          linkLabel: 'Project'
-        }
-      ]
+      careerObjective: 'Atuar no desenvolvimento de interfaces modernas, responsivas e orientadas ao usuário, criando experiências que facilitem operações, visualização de dados e integração eficiente com serviços back-end.',
+      footerSub: 'Disponível para oportunidades em Desenvolvimento Front-end',
+      fileName: 'Paulo-Rezende-Curriculo-Frontend',
+      tags: ['React', 'Angular', 'TypeScript', 'JavaScript', 'HTML5', 'CSS3', 'APIs REST', 'Chart.js', 'Responsividade', 'Componentização', 'UI/UX', 'Integração com Back-end', 'Git & GitHub'],
+      projects: ['dashboard', 'controle', 'smartpet'],
+      jobList: `
+        <li>Usuários precisavam acompanhar produção, atividades e indicadores de forma clara; desenvolvi interfaces web e dashboards para centralizar informações operacionais em tempo real; isso melhorou a leitura dos processos e apoiou decisões rápidas; utilizando React, TypeScript, JavaScript, HTML, CSS e Chart.js.</li>
+        <li>Sistemas internos exigiam melhor experiência de uso e organização visual; estruturei telas com foco em responsividade, hierarquia de informação e navegação objetiva; isso aumentou usabilidade e tornou as rotinas mais práticas para os usuários; utilizando HTML5, CSS3, React e boas práticas de UI/UX.</li>
+        <li>As interfaces precisavam consumir dados de diferentes serviços com confiabilidade; integrei o front-end a APIs REST e organizei a comunicação com o back-end; isso garantiu informações mais consistentes e melhor integração entre camadas; utilizando APIs REST, JavaScript e TypeScript.</li>
+        <li>A operação precisava acompanhar status de projetos, atividades e disponibilidade de recursos; desenvolvi telas para consulta e visualização de dados operacionais; isso facilitou acompanhamento das equipes e melhorou controle das entregas; utilizando React, componentização e integração com APIs.</li>
+        <li>Também evoluí conhecimentos em aplicações corporativas com Angular; desenvolvi telas e integrações em projetos Full Stack; isso ampliou minha aderência a vagas React e Angular; utilizando Angular, TypeScript, APIs REST e componentização.</li>
+      `
     },
 
-    fullstack: {
-      headline: 'Full Stack Developer | Node.js | React | TypeScript | REST APIs | MySQL | PostgreSQL | Prisma | AWS',
-      summary: 'Full Stack Developer with experience in integrated systems, real-time data, and solutions focused on operational efficiency.',
+    python_ai: {
+      headline: 'Desenvolvedor Python | IA | Visão Computacional | OpenCV | FastAPI',
+      summary: 'Desenvolvedor com experiência em visão computacional aplicada à indústria, processamento digital de imagens, automação industrial e integração software + hardware.',
       resumoContent: `
-        There was a lack of control and visibility over production, activities, and project status; I developed systems integrating front-end, back-end, and databases to centralize operational information; this increased operational visibility and supported faster, better decisions; using Node.js, React, TypeScript, MySQL, and PostgreSQL.
+        A inspeção industrial dependia de análise manual e baixa rastreabilidade visual; desenvolvi algoritmos de inspeção visual para classificar peças e apoiar decisões de aprovação ou reprovação; isso aumentou o controle do processo e possibilitou validação automatizada; utilizando Python, OpenCV e processamento digital de imagens.
         <br><br>
-        Internal processes depended on fragmented communication between systems and teams; I designed REST APIs and service integrations to process and distribute data in real time; this reduced rework, improved operational organization, and increased workflow efficiency; using Node.js, Express, Prisma, and system integrations.
+        A operação precisava integrar visão computacional com sistemas de acompanhamento e automação; desenvolvi APIs e comunicação em tempo real para conectar inspeção, dashboards e fluxo operacional; isso aproximou software, hardware e processo produtivo; utilizando FastAPI, WebSocket, SQLite e integração com câmeras industriais.
         <br><br>
-        The operation needed clearer dashboards and internal controls for daily monitoring; I built interfaces and data-processing routines focused on real-time tracking; this improved productivity, operational understanding, and data reliability for the team; using React, JavaScript, TypeScript, and Chart.js.
+        O sistema precisava evoluir conforme testes reais em ambiente industrial; participei da arquitetura, ajustes de parâmetros, validação de modelos e melhorias contínuas; isso tornou a solução mais estável, rastreável e aderente ao uso em produção; utilizando Python, OpenCV, FastAPI e técnicas de visão computacional.
         <br><br>
-        The infrastructure environment had high costs and optimization opportunities; I reviewed resource consumption, reconfigured services, and optimized cloud infrastructure; this reduced operating costs by more than 70% while maintaining application stability and performance; using AWS, EC2, RDS, S3, Nginx, and PM2.
+        Havia necessidade de transformar imagens em dados úteis para operação; implementei processamento em tempo real e geração de evidências visuais; isso permitiu análise técnica, histórico de inspeções e melhor tomada de decisão; utilizando OpenCV, SQLite, WebSocket e dashboards.
       `,
+      careerObjective: 'Atuar no desenvolvimento de soluções com Python, IA e visão computacional aplicadas à indústria, conectando processamento de imagens, automação e sistemas em tempo real para gerar eficiência operacional.',
+      footerSub: 'Disponível para oportunidades em Python, IA e Visão Computacional',
+      fileName: 'Paulo-Rezende-Curriculo-Python-IA-Visao-Computacional',
+      tags: ['Python', 'FastAPI', 'OpenCV', 'Visão Computacional', 'Processamento de Imagens', 'IA Industrial', 'WebSocket', 'SQLite', 'Automação Industrial', 'Integração Hardware + Software', 'Câmeras Industriais', 'Tempo Real'],
+      projects: ['tubovision'],
+      jobList: `
+        <li>A inspeção industrial dependia de análise manual e baixa rastreabilidade visual; desenvolvi algoritmos de inspeção para classificar peças e apoiar decisões de aprovação ou reprovação; isso aumentou controle do processo e possibilitou validação automatizada; utilizando Python, OpenCV e processamento de imagens.</li>
+        <li>A operação precisava integrar visão computacional com sistemas de acompanhamento e automação; desenvolvi APIs e comunicação em tempo real para conectar inspeção, dashboard e fluxo operacional; isso aproximou software, hardware e processo produtivo; utilizando FastAPI, WebSocket, SQLite e câmeras industriais.</li>
+        <li>O sistema precisava evoluir com testes reais em ambiente industrial; participei da arquitetura, ajustes de parâmetros, validação de modelos e melhoria contínua da solução; isso tornou o sistema mais estável, rastreável e aderente ao uso em produção; utilizando Python, OpenCV e técnicas de visão computacional.</li>
+        <li>Havia necessidade de transformar imagens em dados úteis para operação; implementei processamento em tempo real e geração de evidências visuais; isso permitiu análise técnica, histórico de inspeções e melhor tomada de decisão; utilizando OpenCV, SQLite, WebSocket e dashboards.</li>
+        <li>A solução exigia integração entre software e automação industrial; participei da comunicação entre sistema, câmera e fluxo físico de inspeção; isso fortaleceu a confiabilidade do processo e a conexão entre tecnologia e operação; utilizando Python, FastAPI, WebSocket e integração hardware + software.</li>
+      `
+    },
+    java_spring: {
+      headline: 'Desenvolvedor Java | Spring Boot | APIs REST | Angular | TypeScript | MySQL',
+      summary: 'Desenvolvedor com foco em aplicações Java, Spring Boot, APIs REST, arquitetura back-end e integração com interfaces Angular.',
+      resumoContent: `
+        O projeto precisava estruturar uma aplicação corporativa para gestão de pet shop, com cadastro de produtos, clientes, vendas e visão gerencial; desenvolvi funcionalidades back-end com Java e Spring Boot, conectadas a uma interface Angular; isso organizou o fluxo da aplicação e consolidou uma base escalável para evolução do sistema; utilizando Java, Spring Boot, Angular, TypeScript, MySQL e APIs REST.
+        <br><br>
+        A aplicação precisava separar responsabilidades entre regras de negócio, persistência de dados e comunicação com a interface; organizei a arquitetura em camadas e implementei endpoints REST para operações de cadastro, consulta e atualização; isso melhorou manutenção, clareza técnica e evolução de funcionalidades; utilizando Spring Boot, MySQL, APIs REST e boas práticas de arquitetura.
+        <br><br>
+        O front-end precisava consumir dados de forma consistente e integrada ao back-end; implementei comunicação entre Angular e APIs Java para permitir navegação e uso das funcionalidades do sistema; isso fortaleceu minha visão Full Stack em tecnologias corporativas e aumentou aderência a vagas Java/Spring com Angular; utilizando Angular, TypeScript, Spring Boot e APIs REST.
+      `,
+      jobList: `
+        <li>O sistema precisava organizar informações de produtos, clientes e vendas; desenvolvi funcionalidades back-end com cadastro, consulta e regras de negócio; isso estruturou a base operacional da aplicação e facilitou a evolução do projeto; utilizando Java, Spring Boot, MySQL e APIs REST.</li>
+        <li>A aplicação precisava separar responsabilidades entre controller, service, repository e banco de dados; apliquei arquitetura em camadas para organizar o fluxo do sistema; isso melhorou clareza técnica, manutenção e escalabilidade do código; utilizando Spring Boot, boas práticas REST, Git e MySQL.</li>
+        <li>O front-end precisava consumir dados do back-end com consistência; implementei comunicação entre APIs Java e telas web; isso integrou as camadas da aplicação e melhorou a experiência de uso; utilizando Spring Boot, Angular, TypeScript e APIs REST.</li>
+        <li>O projeto exigia evolução contínua de funcionalidades; trabalhei na construção e ajuste de recursos do Smart Pet para atender fluxos de gestão; isso consolidou prática com stack corporativa e visão Full Stack; utilizando Java, Spring Boot, Angular e MySQL.</li>
+        <li>Havia necessidade de fortalecer minha atuação em tecnologias enterprise; desenvolvi e estudei aplicações Java/Spring integradas a banco de dados e interface web; isso ampliou minha capacidade de atuar em sistemas corporativos escaláveis; utilizando Java, Spring Boot, MySQL, Angular e Git.</li>
+      `,
+      careerObjective: 'Atuar no desenvolvimento de aplicações Java com Spring Boot, APIs REST e arquitetura back-end, contribuindo para sistemas corporativos escaláveis, organizados e integrados.',
+      footerSub: 'Disponível para oportunidades em Java / Spring Boot',
+      fileName: 'Paulo-Rezende-Curriculo-Java-Spring-Boot',
+      tags: ['Java', 'Spring Boot', 'APIs REST', 'MySQL', 'Angular', 'TypeScript', 'Arquitetura em Camadas', 'Back-end', 'Git', 'Boas práticas'],
+      projects: ['smartpet'],
+      jobList: `
+        <li>Havia necessidade de evoluir para arquiteturas corporativas amplamente utilizadas no mercado; desenvolvi aplicações back-end com Java e Spring Boot; isso ampliou minha capacidade de atuar em sistemas enterprise e aplicações robustas; utilizando Java, Spring Boot e APIs REST.</li>
+        <li>Sistemas demandavam integração eficiente entre front-end e back-end; implementei comunicação entre APIs Java e interfaces web; isso melhorou minha compreensão do fluxo completo de dados e da integração entre camadas; utilizando Spring Boot, Angular, TypeScript e APIs REST.</li>
+        <li>A aplicação precisava organizar dados de produtos, clientes e vendas; estruturei funcionalidades com cadastro, consulta e regras de negócio; isso fortaleceu a base operacional do sistema e facilitou evolução de funcionalidades; utilizando Java, Spring Boot, MySQL e arquitetura em camadas.</li>
+        <li>O projeto exigia organização de código e separação de responsabilidades; apliquei estrutura em camadas para facilitar manutenção e evolução; isso aumentou clareza técnica e sustentação do sistema; utilizando Spring Boot, boas práticas REST, Git e MySQL.</li>
+        <li>Também apliquei Angular na camada web para integração com o back-end; isso reforçou visão Full Stack em tecnologias corporativas e ampliou aderência a vagas Java/Spring com front-end Angular; utilizando Angular, TypeScript e APIs REST.</li>
+      `
+    },
+    mobile: {
+      headline: 'Desenvolvedor Mobile React Native | Expo | APIs REST | JWT | Node.js',
+      summary: 'Desenvolvedor Mobile com experiência em aplicações React Native, integração com APIs REST, autenticação JWT e visão Full Stack para produtos mobile.',
+      resumoContent: `
+        Usuários precisavam organizar informações financeiras de forma simples e acessível; desenvolvi aplicação mobile para controle de receitas, despesas e planejamento financeiro; isso facilitou o acompanhamento financeiro e melhorou a experiência de uso; utilizando React Native, Expo e JavaScript.
+        <br><br>
+        A aplicação precisava sincronizar informações com o back-end; implementei consumo de APIs REST e autenticação; isso garantiu comunicação consistente entre app e servidor, além de melhor segurança no acesso; utilizando React Native, Node.js, APIs REST e JWT.
+        <br><br>
+        O app precisava evoluir com código organizado e manutenível; estruturei navegação, componentes e responsabilidades da aplicação; isso melhorou performance, usabilidade e facilidade de evolução; utilizando Expo Go, componentização e boas práticas mobile.
+        <br><br>
+        O produto exigia visão completa entre mobile e back-end; participei do desenvolvimento Full Stack do fluxo da aplicação; isso fortaleceu a integração entre interface, regra de negócio e dados; utilizando React Native, Node.js, JavaScript e APIs REST.
+      `,
+      careerObjective: 'Atuar no desenvolvimento de aplicações mobile multiplataforma com React Native, conectadas a APIs e focadas em experiência do usuário, organização de dados e entrega de valor real.',
+      footerSub: 'Disponível para oportunidades em Mobile React Native',
+      fileName: 'Paulo-Rezende-Curriculo-Mobile-React-Native',
+      tags: ['React Native', 'Expo', 'Expo Go', 'JavaScript', 'APIs REST', 'JWT', 'Node.js', 'Navegação', 'Consumo de APIs', 'Mobile Full Stack', 'Git'],
+      projects: ['controle'],
+      jobList: `
+        <li>Usuários precisavam organizar informações financeiras de forma simples e acessível; desenvolvi aplicação mobile para controle de receitas, despesas e planejamento financeiro; isso facilitou acompanhamento financeiro e melhorou a experiência de uso; utilizando React Native, Expo e JavaScript.</li>
+        <li>A aplicação precisava sincronizar informações com o back-end; implementei consumo de APIs REST e autenticação; isso garantiu comunicação consistente entre app e servidor e melhor segurança no acesso; utilizando React Native, Node.js, APIs REST e JWT.</li>
+        <li>O app precisava evoluir com código organizado e manutenível; estruturei navegação, componentes e responsabilidades da aplicação; isso melhorou performance, usabilidade e facilidade de evolução; utilizando Expo Go, componentização e boas práticas mobile.</li>
+        <li>O produto exigia visão completa entre mobile e back-end; participei do desenvolvimento Full Stack do fluxo da aplicação; isso fortaleceu integração entre interface, regra de negócio e dados; utilizando React Native, Node.js, JavaScript e APIs REST.</li>
+        <li>Também atuei em integrações web e back-end que dão suporte a aplicações mobile; isso ampliou minha visão de produto e melhorou a capacidade de construir soluções mobile conectadas a serviços; utilizando APIs REST, Git e arquitetura em camadas.</li>
+      `
+    }
+  },
+  en: {
+    fullstack: {
+      headline: 'Full Stack Developer | Node.js | React | Angular | TypeScript | AWS | Industrial AI',
+      summary: 'Full Stack Developer with experience in corporate systems, cloud, mobile, REST APIs, databases, and industrial AI solutions.',
+      resumoContent: `
+        Companies needed greater visibility over production, activities, and deliveries; I developed complete systems integrating front-end, back-end, databases, and dashboards; this centralized operational information, reduced rework, and supported real-time decisions; using Node.js, React, TypeScript, MySQL, PostgreSQL, and Chart.js.
+        <br><br>
+        Internal processes depended on manual integrations and fragmented communication; I created REST APIs and integration flows between systems; this increased operational efficiency, improved data reliability, and made deliveries more predictable; using Node.js, Express, Prisma, REST APIs, and AWS.
+        <br><br>
+        Projects required solutions beyond traditional web development; I participated in systems involving mobile, computer vision, and industrial automation; this expanded the technological impact of the solutions and connected software, hardware, and operations; using React Native, Python, OpenCV, FastAPI, and WebSocket.
+        <br><br>
+        Cloud infrastructure had high costs; I analyzed consumption, reconfigured resources, and adjusted services; this reduced operating costs by more than 70% while maintaining stability and performance; using AWS EC2, RDS, S3, Nginx, and PM2.
+      `,
+      careerObjective: 'Build complete solutions that solve real business problems by combining front-end, back-end, data, cloud, and automation to generate operational impact and support strategic decisions.',
       footerSub: 'Available for Full Stack opportunities',
       fileName: 'Paulo-Rezende-Resume-Fullstack',
-      tags: [
-        'JavaScript',
-        'TypeScript',
-        'Node.js',
-        'React',
-        'Express.js',
-        'REST APIs',
-        'Prisma ORM',
-        'MySQL',
-        'PostgreSQL',
-        'AWS',
-        'Git & GitHub',
-        'Layered Architecture',
-        'Systems Integration',
-        'Deployment',
-        'Nginx',
-        'PM2'
-      ],
-      projects: [
-        {
-          title: 'Arcon — Full Stack System',
-          description: 'Project with complete front-end/back-end integration, layered architecture, and data persistence.',
-          technologies: 'Node.js, PostgreSQL, JavaScript, Prisma',
-          highlights: 'REST APIs, architecture, and integration',
-          link: 'https://github.com/pvrezende/Arcon.git',
-          linkLabel: 'GitHub'
-        },
-        {
-          title: 'Production Dashboard',
-          description: 'Web system with real-time data and support for industrial operation.',
-          technologies: 'Node.js, MySQL, AWS',
-          highlights: 'data integration, backend, frontend, and operational visibility',
-          link: 'http://98.84.113.180:3000/',
-          linkLabel: 'Dashboard'
-        },
-        {
-          title: 'Expense Tracker',
-          description: 'Web + mobile application with API consumption and user-focused experience.',
-          technologies: 'React, Node.js, JavaScript',
-          highlights: 'full stack, APIs, and integration',
-          link: 'https://controle-de-gastos-app.vercel.app/',
-          linkLabel: 'Project'
-        },
-        {
-          title: 'TuboVision — Industrial Inspection System with AI',
-          description: 'Computer vision project focused on industrial capillary inspection.',
-          technologies: 'Python, OpenCV, YOLO, Docker and REST API',
-          highlights: 'computer vision, technical integration, and inspection workflow',
-          link: 'https://github.com/pvrezende/TuboVision',
-          linkLabel: 'GitHub'
-        }
-      ]
+      tags: ['React', 'Angular', 'TypeScript', 'Node.js', 'Express.js', 'REST APIs', 'Prisma ORM', 'MySQL', 'PostgreSQL', 'AWS', 'Docker', 'React Native', 'Python', 'OpenCV', 'Git & GitHub'],
+      projects: ['tubovision', 'dashboard', 'controle', 'smartpet'],
+      jobList: `
+        <li>There was low visibility over production, activities, and deliveries; I developed complete applications integrating front-end, back-end, databases, and dashboards; this centralized operational information and improved real-time decision-making; using Node.js, React, TypeScript, MySQL, and PostgreSQL.</li>
+        <li>Internal processes depended on manual controls and fragmented communication; I created REST APIs and integration flows between systems; this reduced rework, increased data reliability, and made routines more efficient; using Node.js, Express, Prisma, and REST APIs.</li>
+        <li>The operation needed clear interfaces for daily monitoring; I developed screens and dashboards for indicators, activities, and process status; this improved productivity, operational visibility, and user experience; using React, JavaScript, TypeScript, and Chart.js.</li>
+        <li>Cloud infrastructure had high costs; I analyzed consumption, reconfigured resources, and optimized services; this reduced operating costs by more than 70% while maintaining stability and performance; using AWS EC2, RDS, S3, Nginx, and PM2.</li>
+        <li>Projects required technical evolution beyond traditional web development; I participated in solutions involving mobile, computer vision, and software + hardware integration; this expanded delivery impact and connected technology with industrial operations; using React Native, Python, OpenCV, FastAPI, and WebSocket.</li>
+      `
+    },
+    backend_node: {
+      headline: 'Node.js Back-end Developer | REST APIs | Express | NestJS | Prisma | AWS',
+      summary: 'Back-end Developer focused on REST APIs, system integration, relational databases, process automation, and cloud infrastructure.',
+      resumoContent: `
+        Internal systems lacked standardization in data access and processing; I developed REST APIs to centralize, process, and expose information; this reduced inconsistencies and increased integration reliability; using Node.js, Express, TypeScript, MySQL, and PostgreSQL.
+        <br><br>
+        Operational processes depended on manual steps prone to errors; I implemented back-end integrations and automation; this reduced rework, increased operational efficiency, and improved data consistency; using Node.js, REST APIs, JWT, and service integrations.
+        <br><br>
+        The data layer needed to be more organized and scalable; I standardized data modeling, access, and manipulation; this improved maintainability, productivity, and query performance; using Prisma ORM, MySQL, PostgreSQL, and TypeORM.
+        <br><br>
+        The production environment required stability and resource control; I configured deployment, processes, and servers; this improved availability and reduced operating costs by more than 70%; using AWS EC2, RDS, S3, Docker, Nginx, and PM2.
+      `,
+      careerObjective: 'Work on scalable back-end services, well-structured APIs, and integrations that improve operational efficiency, data reliability, and production system support.',
+      footerSub: 'Available for Node.js Back-end opportunities',
+      fileName: 'Paulo-Rezende-Resume-Backend-Node',
+      tags: ['Node.js', 'Express.js', 'NestJS', 'TypeScript', 'REST APIs', 'JWT', 'Prisma ORM', 'TypeORM', 'MySQL', 'PostgreSQL', 'Docker', 'AWS', 'Nginx', 'PM2', 'Git'],
+      projects: ['dashboard', 'controle', 'smartpet'],
+      jobList: `
+        <li>Internal systems lacked standardization in data access and processing; I developed REST APIs to centralize, process, and expose information; this reduced inconsistencies and increased integration reliability; using Node.js, Express, TypeScript, MySQL, and PostgreSQL.</li>
+        <li>Operational processes depended on manual steps prone to errors; I implemented back-end integrations and automation; this reduced rework, increased operational efficiency, and improved data consistency; using Node.js, REST APIs, JWT, and service integrations.</li>
+        <li>The data layer needed to be more organized and scalable; I standardized data modeling, access, and manipulation; this improved maintainability, productivity, and query performance; using Prisma ORM, MySQL, PostgreSQL, and TypeORM.</li>
+        <li>The production environment required stability and resource control; I configured deployment, servers, and process management; this increased availability and reduced operating costs by more than 70%; using AWS EC2, RDS, S3, Docker, Nginx, and PM2.</li>
+        <li>Applications needed to evolve with security and predictability; I continuously improved APIs, code structure, and versioning; this increased reliability, maintainability, and long-term system support; using Git, REST best practices, and layered architecture.</li>
+      `
     },
 
-    mobile: {
-      headline: 'Mobile Developer | React Native | Expo | JavaScript | REST APIs',
-      summary: 'Mobile Developer with experience in API-integrated applications, data organization, and user experience.',
+    frontend: {
+      headline: 'Front-end Developer | React | Angular | TypeScript | JavaScript | REST APIs',
+      summary: 'Front-end Developer with experience in responsive interfaces, operational dashboards, data visualization, and REST API integration.',
       resumoContent: `
-        Users needed a practical way to track and organize information on mobile devices; I developed applications focused on data control, simple navigation, and clear information display; this improved usability and made day-to-day data management easier; using React Native, Expo, and JavaScript.
+        Users needed to track production, activities, and indicators clearly; I developed web interfaces and dashboards to centralize operational information in real time; this improved process visibility, supported faster decisions, and reduced dependency on manual controls; using React, TypeScript, JavaScript, HTML, CSS, and Chart.js.
         <br><br>
-        There was a need to synchronize information between the app and internal systems; I implemented REST API integration for real-time data exchange and consumption; this ensured data consistency and better communication between the mobile application and backend; using React Native, REST APIs, and back-end services.
+        Internal systems required better user experience and visual organization; I structured screens focused on responsiveness, information hierarchy, and objective navigation; this increased usability, made activity tracking easier, and improved day-to-day routines for users; using HTML5, CSS3, React, and UI/UX best practices.
         <br><br>
-        The application needed organized code and easier long-term maintenance; I structured components, navigation, and responsibilities in a modular way; this improved performance, maintainability, and future evolution of the project; using React Native, Expo, componentization, and code organization best practices.
+        Interfaces needed to consume data from different services reliably; I integrated front-end applications with REST APIs and organized communication with the back-end; this ensured more consistent data, updated information, and stronger layer integration; using REST APIs, JavaScript, TypeScript, and front-end/back-end integration.
         <br><br>
-        Users needed a smoother and more efficient app experience for recurring use; I improved screen organization and navigation flow to reduce friction; this increased clarity, usability, and interaction efficiency within the application; using React Native, Expo, and JavaScript.
+        I also evolved knowledge in corporate applications with Angular; I developed screens and integrations in Full Stack projects to strengthen proficiency in front-end frameworks used in the market; this expanded my fit for both React and Angular opportunities; using Angular, TypeScript, REST APIs, and componentization.
       `,
-      footerSub: 'Available for Mobile opportunities',
-      fileName: 'Paulo-Rezende-Resume-Mobile',
-      tags: [
-        'React Native',
-        'Expo',
-        'JavaScript',
-        'REST APIs',
-        'Navigation',
-        'Componentization',
-        'Service Integration',
-        'Git',
-        'Mobile Applications',
-        'Mobile UX'
-      ],
-      projects: [
-        {
-          title: 'Expense Tracker',
-          description: 'Mobile application for financial management focused on navigation and service integration.',
-          technologies: 'React Native, Expo',
-          highlights: 'mobile, APIs, and navigation',
-          link: 'https://controle-de-gastos-app.vercel.app/',
-          linkLabel: 'Project'
-        },
-        {
-          title: 'Industrial Production Dashboard',
-          description: 'Integration with backend and APIs for data consumption and visualization.',
-          technologies: 'Node.js, MySQL',
-          highlights: 'data consumption and integration',
-          link: 'http://98.84.113.180:3000/',
-          linkLabel: 'Dashboard'
-        },
-        {
-          title: 'Arcon — Full Stack Web System',
-          description: 'Project with front-end/back-end integration, API consumption, and layered organization.',
-          technologies: 'Node.js, JavaScript, PostgreSQL, Prisma',
-          highlights: 'service integration, REST APIs, and architecture',
-          link: 'https://github.com/pvrezende/Arcon.git',
-          linkLabel: 'GitHub'
-        }
-      ]
+      careerObjective: 'Work on modern, responsive, user-oriented interfaces that improve operations, data visualization, and efficient integration with back-end services.',
+      footerSub: 'Available for Front-end opportunities',
+      fileName: 'Paulo-Rezende-Resume-Frontend',
+      tags: ['React', 'Angular', 'TypeScript', 'JavaScript', 'HTML5', 'CSS3', 'REST APIs', 'Chart.js', 'Responsive Design', 'Componentization', 'UI/UX', 'Back-end Integration', 'Git & GitHub'],
+      projects: ['dashboard', 'controle', 'smartpet'],
+      jobList: `
+        <li>Users needed to track production, activities, and indicators clearly; I developed web interfaces and dashboards to centralize operational information in real time; this improved process visibility and supported faster decisions; using React, TypeScript, JavaScript, HTML, CSS, and Chart.js.</li>
+        <li>Internal systems required better user experience and visual organization; I structured screens focused on responsiveness, information hierarchy, and objective navigation; this increased usability and made routines more practical for users; using HTML5, CSS3, React, and UI/UX best practices.</li>
+        <li>Interfaces needed to consume data from different services reliably; I integrated front-end applications with REST APIs and organized communication with the back-end; this ensured more consistent information and stronger layer integration; using REST APIs, JavaScript, and TypeScript.</li>
+        <li>The operation needed to monitor project status, activities, and resource availability; I developed screens for operational data querying and visualization; this made team monitoring easier and improved delivery control; using React, componentization, and API integration.</li>
+        <li>I also evolved knowledge in corporate applications with Angular; I developed screens and integrations in Full Stack projects; this expanded my fit for both React and Angular opportunities; using Angular, TypeScript, REST APIs, and componentization.</li>
+      `
+    },
+    python_ai: {
+      headline: 'Python Developer | AI | Computer Vision | OpenCV | FastAPI',
+      summary: 'Developer with experience in industrial computer vision, digital image processing, industrial automation, and software + hardware integration.',
+      resumoContent: `
+        Industrial inspection relied on manual analysis and low visual traceability; I developed visual inspection algorithms to classify parts and support approval/rejection decisions; this increased process control and enabled automated validation; using Python, OpenCV, and digital image processing.
+        <br><br>
+        The operation needed to integrate computer vision with monitoring systems and automation; I developed APIs and real-time communication to connect inspection, dashboards, and operational workflows; this connected software, hardware, and production processes; using FastAPI, WebSocket, SQLite, and industrial camera integration.
+        <br><br>
+        The system needed to evolve through real industrial testing; I participated in architecture, parameter adjustments, model validation, and continuous improvements; this made the solution more stable, traceable, and production-oriented; using Python, OpenCV, FastAPI, and computer vision techniques.
+        <br><br>
+        There was a need to turn images into useful operational data; I implemented real-time processing and visual evidence generation; this enabled technical analysis, inspection history, and better decision-making; using OpenCV, SQLite, WebSocket, and dashboards.
+      `,
+      careerObjective: 'Work on Python, AI, and computer vision solutions applied to industry, connecting image processing, automation, and real-time systems to generate operational efficiency.',
+      footerSub: 'Available for Python, AI, and Computer Vision opportunities',
+      fileName: 'Paulo-Rezende-Resume-Python-AI-Computer-Vision',
+      tags: ['Python', 'FastAPI', 'OpenCV', 'Computer Vision', 'Image Processing', 'Industrial AI', 'WebSocket', 'SQLite', 'Industrial Automation', 'Hardware + Software Integration', 'Industrial Cameras', 'Real Time'],
+      projects: ['tubovision'],
+      jobList: `
+        <li>Industrial inspection relied on manual analysis and low visual traceability; I developed visual inspection algorithms to classify parts and support approval/rejection decisions; this increased process control and enabled automated validation; using Python, OpenCV, and image processing.</li>
+        <li>The operation needed to integrate computer vision with monitoring systems and automation; I developed APIs and real-time communication to connect inspection, dashboards, and operational workflows; this connected software, hardware, and production processes; using FastAPI, WebSocket, SQLite, and industrial cameras.</li>
+        <li>The system needed to evolve through real industrial testing; I participated in architecture, parameter adjustments, model validation, and continuous improvements; this made the solution more stable, traceable, and production-oriented; using Python, OpenCV, and computer vision techniques.</li>
+        <li>There was a need to turn images into useful operational data; I implemented real-time processing and visual evidence generation; this enabled technical analysis, inspection history, and better decision-making; using OpenCV, SQLite, WebSocket, and dashboards.</li>
+        <li>The solution required integration between software and industrial automation; I worked on communication between the system, camera, and physical inspection flow; this strengthened process reliability and the connection between technology and operations; using Python, FastAPI, WebSocket, and hardware + software integration.</li>
+      `
+    },
+    java_spring: {
+      headline: 'Java Developer | Spring Boot | REST APIs | Angular | MySQL',
+      summary: 'Developer focused on Java applications, Spring Boot, REST APIs, back-end architecture, and Angular interface integration.',
+      resumoContent: `
+        The project needed to structure a corporate-style application for pet shop management, including products, customers, sales, and business visibility; I developed back-end features with Java and Spring Boot connected to an Angular interface; this organized the application flow and created a scalable base for system evolution; using Java, Spring Boot, Angular, TypeScript, MySQL, and REST APIs.
+        <br><br>
+        The application needed to separate responsibilities between business rules, data persistence, and interface communication; I organized the architecture in layers and implemented REST endpoints for create, query, and update operations; this improved maintainability, technical clarity, and feature evolution; using Spring Boot, MySQL, REST APIs, and architecture best practices.
+        <br><br>
+        The front-end needed to consume data consistently from the back-end; I implemented communication between Angular and Java APIs to support navigation and application features; this strengthened my Full Stack view in corporate technologies and increased my fit for Java/Spring roles with Angular; using Angular, TypeScript, Spring Boot, and REST APIs.
+      `,
+      jobList: `
+        <li>The system needed to organize product, customer, and sales information; I developed back-end features with registration, queries, and business rules; this structured the operational base of the application and made project evolution easier; using Java, Spring Boot, MySQL, and REST APIs.</li>
+        <li>The application needed to separate responsibilities between controller, service, repository, and database; I applied layered architecture to organize the system flow; this improved technical clarity, maintainability, and code scalability; using Spring Boot, REST best practices, Git, and MySQL.</li>
+        <li>The front-end needed to consume back-end data consistently; I implemented communication between Java APIs and web screens; this integrated the application layers and improved the user experience; using Spring Boot, Angular, TypeScript, and REST APIs.</li>
+        <li>The project required continuous feature evolution; I worked on building and adjusting Smart Pet resources to support management flows; this consolidated practice with a corporate stack and Full Stack vision; using Java, Spring Boot, Angular, and MySQL.</li>
+        <li>There was a need to strengthen my work with enterprise technologies; I developed and studied Java/Spring applications integrated with databases and web interfaces; this expanded my ability to work with scalable corporate systems; using Java, Spring Boot, MySQL, Angular, and Git.</li>
+      `,
+      careerObjective: 'Work on Java applications with Spring Boot, REST APIs, and back-end architecture, contributing to scalable, organized, and integrated corporate systems.',
+      footerSub: 'Available for Java / Spring Boot opportunities',
+      fileName: 'Paulo-Rezende-Resume-Java-Spring-Boot',
+      tags: ['Java', 'Spring Boot', 'REST APIs', 'MySQL', 'Angular', 'TypeScript', 'Layered Architecture', 'Back-end', 'Git', 'Best Practices'],
+      projects: ['smartpet'],
+      jobList: `
+        <li>There was a need to evolve into enterprise architectures widely used in the market; I developed back-end applications with Java and Spring Boot; this expanded my ability to work with enterprise systems and robust applications; using Java, Spring Boot, and REST APIs.</li>
+        <li>Systems required efficient integration between front-end and back-end; I implemented communication between Java APIs and web interfaces; this improved my understanding of complete data flow and layer integration; using Spring Boot, Angular, TypeScript, and REST APIs.</li>
+        <li>The application needed to organize product, customer, and sales data; I structured features with registration, queries, and business rules; this strengthened the operational foundation of the system and made feature evolution easier; using Java, Spring Boot, MySQL, and layered architecture.</li>
+        <li>The project required code organization and separation of responsibilities; I applied layered structure to support maintenance and evolution; this increased technical clarity and system sustainability; using Spring Boot, REST best practices, Git, and MySQL.</li>
+        <li>I also applied Angular in the web layer for back-end integration; this reinforced a Full Stack view in corporate technologies and expanded my fit for Java/Spring roles with Angular front-end; using Angular, TypeScript, and REST APIs.</li>
+      `
+    },
+    mobile: {
+      headline: 'React Native Mobile Developer | Expo | REST APIs | JWT | Node.js',
+      summary: 'Mobile Developer with experience in React Native applications, REST API integration, JWT authentication, and Full Stack vision for mobile products.',
+      resumoContent: `
+        Users needed to organize financial information in a simple and accessible way; I developed a mobile application for income, expense, and financial planning control; this made financial tracking easier and improved user experience; using React Native, Expo, and JavaScript.
+        <br><br>
+        The application needed to synchronize information with the back-end; I implemented REST API consumption and authentication; this ensured consistent communication between app and server and improved access security; using React Native, Node.js, REST APIs, and JWT.
+        <br><br>
+        The app needed to evolve with organized and maintainable code; I structured navigation, components, and application responsibilities; this improved performance, usability, and feature evolution; using Expo Go, componentization, and mobile best practices.
+        <br><br>
+        The product required a complete view between mobile and back-end; I participated in Full Stack development of the app flow; this strengthened integration between interface, business logic, and data; using React Native, Node.js, JavaScript, and REST APIs.
+      `,
+      careerObjective: 'Work on cross-platform mobile applications with React Native, connected to APIs and focused on user experience, data organization, and real value delivery.',
+      footerSub: 'Available for React Native Mobile opportunities',
+      fileName: 'Paulo-Rezende-Resume-Mobile-React-Native',
+      tags: ['React Native', 'Expo', 'Expo Go', 'JavaScript', 'REST APIs', 'JWT', 'Node.js', 'Navigation', 'API Consumption', 'Mobile Full Stack', 'Git'],
+      projects: ['controle'],
+      jobList: `
+        <li>Users needed to organize financial information in a simple and accessible way; I developed a mobile application for income, expense, and financial planning control; this made financial tracking easier and improved user experience; using React Native, Expo, and JavaScript.</li>
+        <li>The application needed to synchronize information with the back-end; I implemented REST API consumption and authentication; this ensured consistent communication between app and server and improved access security; using React Native, Node.js, REST APIs, and JWT.</li>
+        <li>The app needed to evolve with organized and maintainable code; I structured navigation, components, and application responsibilities; this improved performance, usability, and feature evolution; using Expo Go, componentization, and mobile best practices.</li>
+        <li>The product required a complete view between mobile and back-end; I participated in Full Stack development of the application flow; this strengthened integration between interface, business logic, and data; using React Native, Node.js, JavaScript, and REST APIs.</li>
+        <li>I also worked on web and back-end integrations that support mobile applications; this expanded my product vision and improved my ability to build mobile solutions connected to services; using REST APIs, Git, and layered architecture.</li>
+      `
     }
   }
 };
+
+function normalizeRole(role) {
+  const aliases = {
+    backend: 'backend_node',
+    backend_java: 'java_spring'
+  };
+  return aliases[role] || role;
+}
 
 function getSavedTheme() {
   const saved = localStorage.getItem(THEME_KEY);
@@ -706,10 +514,8 @@ function getSavedLang() {
 }
 
 function getSavedRole() {
-  const saved = localStorage.getItem(ROLE_KEY);
-  return ['backend', 'backend_java', 'frontend', 'fullstack', 'mobile'].includes(saved)
-    ? saved
-    : 'fullstack';
+  const saved = normalizeRole(localStorage.getItem(ROLE_KEY));
+  return ['fullstack', 'backend_node', 'frontend', 'python_ai', 'java_spring', 'mobile'].includes(saved) ? saved : 'fullstack';
 }
 
 function applyTheme(theme) {
@@ -737,7 +543,6 @@ function applyLanguage(lang) {
   }
 
   document.documentElement.lang = lang === 'pt' ? 'pt-BR' : 'en';
-
   updateRoleOptions(lang);
   applyTheme(getSavedTheme());
 }
@@ -760,10 +565,11 @@ function renderTags(tags) {
   heroTagsEl.innerHTML = tags.map((tag) => `<span>${tag}</span>`).join('');
 }
 
-function renderProjects(projects, lang) {
+function renderProjects(projectKeys, lang) {
   if (!projectsContainerEl) return;
 
   const labels = translations[lang];
+  const projects = projectKeys.map((key) => sharedProjects[lang][key]).filter(Boolean);
 
   projectsContainerEl.innerHTML = projects.map((project) => `
     <article class="project">
@@ -781,8 +587,9 @@ function renderProjects(projects, lang) {
 }
 
 function applyRole(role) {
+  const normalizedRole = normalizeRole(role);
   const lang = getSavedLang();
-  const profile = roleProfiles[lang]?.[role];
+  const profile = roleProfiles[lang]?.[normalizedRole];
 
   if (!profile) return;
 
@@ -790,15 +597,21 @@ function applyRole(role) {
   if (summaryEl) summaryEl.innerHTML = profile.summary;
   if (resumoContentEl) resumoContentEl.innerHTML = profile.resumoContent;
   if (footerSubEl) footerSubEl.innerHTML = profile.footerSub;
+  if (careerObjectiveEl) careerObjectiveEl.innerHTML = profile.careerObjective;
+
+  const jobListEl = document.querySelector('[data-i18n="job1List"]');
+  if (jobListEl && profile.jobList) {
+    jobListEl.innerHTML = profile.jobList;
+  }
 
   renderTags(profile.tags);
   renderProjects(profile.projects, lang);
 
   document.title = profile.fileName;
-  localStorage.setItem(ROLE_KEY, role);
+  localStorage.setItem(ROLE_KEY, normalizedRole);
 
   if (resumeRole) {
-    resumeRole.value = role;
+    resumeRole.value = normalizedRole;
   }
 }
 
