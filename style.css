@@ -315,6 +315,10 @@ a:focus-visible {
   margin-bottom: 0;
 }
 
+.education-item + .education-item {
+  margin-top: 16px;
+}
+
 .timeline-item + .timeline-item,
 .project + .project {
   margin-top: 24px;
@@ -631,6 +635,10 @@ a:focus-visible {
     border-top: 1px solid #ddd !important;
   }
 
+  .education-item + .education-item {
+    margin-top: 6px !important;
+  }
+
   .timeline-head {
     display: flex !important;
     justify-content: space-between !important;
@@ -647,12 +655,31 @@ a:focus-visible {
     margin-top: 3px !important;
   }
 
+  .hero,
   .project,
-  .timeline-item,
   .meta-block,
-  .section {
+  .education-item {
     break-inside: avoid !important;
     page-break-inside: avoid !important;
+  }
+
+  .section,
+  .timeline-item {
+    break-inside: auto !important;
+    page-break-inside: auto !important;
+  }
+
+  .section h2,
+  .timeline-head,
+  .timeline-item li {
+    break-inside: avoid !important;
+    page-break-inside: avoid !important;
+  }
+
+  .section h2,
+  .timeline-head {
+    break-after: avoid !important;
+    page-break-after: avoid !important;
   }
 
   a {

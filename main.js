@@ -37,8 +37,22 @@ const translations = {
     courseOngoing: 'Desenvolvimento Full-Stack — INDT (350 hrs)',
     courseCetam: 'Informática Básica e Avançada — CETAM',
     footerText: 'Currículo — Paulo Victor Rezende Virginio',
+    currentJobTitle: 'Desenvolvedor Full Stack Jr — Instituto Conecthus',
+    currentJobDate: '06/08/2026 – Atual',
+    currentJobList: `
+      <li>Atuo no desenvolvimento de soluções Full Stack para digitalização, integração e rastreabilidade de processos industriais, participando do levantamento de requisitos, arquitetura, modelagem de dados, implementação e testes; utilizando React, TypeScript, Node.js, NestJS, Python, FastAPI, MySQL e SQL Server.</li>
+      <li>Desenvolvo sistemas para identificação e rastreabilidade de itens em linhas de produção por meio de QR Code e código de barras, com regras operacionais configuráveis e preparação para comunicação com máquinas e CLPs; utilizando React, FastAPI, MySQL, Docker e protocolos de integração industrial.</li>
+      <li>Desenvolvo gateways para integrar sistemas corporativos e logísticos por meio de webhooks e APIs REST, garantindo processamento assíncrono, controle de filas, retentativas e confiabilidade na troca de dados; utilizando NestJS, TypeORM, SQL Server, Redis, BullMQ e Docker Compose.</li>
+      <li>Implemento mecanismos de segurança e consistência para integrações, incluindo autenticação por API Key e HMAC, idempotência, validação de contratos e tratamento de falhas, reduzindo duplicidades e aumentando a rastreabilidade das operações.</li>
+      <li>Estruturo ambientes reproduzíveis e recursos de suporte à operação, incluindo migrations, simuladores e mocks, health checks, readiness, logs, documentação técnica e testes automatizados de contrato e integração.</li>
+    `,
     job1Title: 'Desenvolvedor Full Stack Jr — Delta Solutions',
-    job1Date: 'Março/2025 – Atual',
+    job1Date: 'Março/2025 – 03/08/2026',
+    adsDegree: 'Análise e Desenvolvimento de Sistemas',
+    adsCompletion: '3º período • Conclusão: 2027',
+    softwareEngineeringDegree: 'Engenharia de Software',
+    eveningLabel: 'Noturno',
+    softwareEngineeringCompletion: '3º período • Conclusão: 2029',
     job1List: `
       <li>A operação não possuía visibilidade centralizada sobre produção e atividades; desenvolvi e mantive aplicações web integrando front-end, back-end e bancos relacionais; isso aumentou a confiabilidade das informações e melhorou o acompanhamento operacional em tempo real; utilizando Node.js, React, MySQL e PostgreSQL.</li>
       <li>Havia retrabalho e baixa integração entre sistemas; implementei APIs REST para comunicação entre serviços e automação de processos internos; isso reduziu etapas manuais, aumentou a eficiência operacional e melhorou a consistência dos dados; utilizando Node.js, TypeScript e arquitetura de APIs.</li>
@@ -70,8 +84,22 @@ const translations = {
     courseOngoing: 'Full-Stack Development — INDT (350 hrs)',
     courseCetam: 'Basic and Advanced IT — CETAM',
     footerText: 'Resume — Paulo Victor Rezende Virginio',
+    currentJobTitle: 'Junior Full Stack Developer — Instituto Conecthus',
+    currentJobDate: 'August 6, 2026 – Present',
+    currentJobList: `
+      <li>I develop Full Stack solutions for the digitalization, integration, and traceability of industrial processes, contributing to requirements analysis, architecture, data modeling, implementation, and testing; using React, TypeScript, Node.js, NestJS, Python, FastAPI, MySQL, and SQL Server.</li>
+      <li>I develop systems for item identification and traceability on production lines through QR codes and barcodes, with configurable operational rules and preparation for communication with machines and PLCs; using React, FastAPI, MySQL, Docker, and industrial integration protocols.</li>
+      <li>I develop gateways that integrate corporate and logistics systems through webhooks and REST APIs, ensuring asynchronous processing, queue management, retries, and reliable data exchange; using NestJS, TypeORM, SQL Server, Redis, BullMQ, and Docker Compose.</li>
+      <li>I implement security and consistency mechanisms for integrations, including API Key and HMAC authentication, idempotency, contract validation, and failure handling, reducing duplicate processing and improving operational traceability.</li>
+      <li>I structure reproducible environments and operational support resources, including migrations, simulators and mocks, health checks, readiness, logs, technical documentation, and automated contract and integration tests.</li>
+    `,
     job1Title: 'Junior Full Stack Developer — Delta Solutions',
-    job1Date: 'March/2025 – Present',
+    job1Date: 'March/2025 – August 3, 2026',
+    adsDegree: 'Systems Analysis and Development',
+    adsCompletion: '3rd semester • Expected graduation: 2027',
+    softwareEngineeringDegree: 'Software Engineering',
+    eveningLabel: 'Evening program',
+    softwareEngineeringCompletion: '3rd semester • Expected graduation: 2029',
     job1List: `
       <li>The operation lacked centralized visibility over production and activities; I developed and maintained web applications integrating front-end, back-end, and relational databases; this increased information reliability and improved real-time operational monitoring; using Node.js, React, MySQL, and PostgreSQL.</li>
       <li>There was rework and weak integration between systems; I implemented REST APIs for service communication and internal process automation; this reduced manual steps, increased operational efficiency, and improved data consistency; using Node.js, TypeScript, and API architecture.</li>
@@ -106,6 +134,14 @@ const roleOptions = {
 
 const sharedProjects = {
   pt: {
+    autopackline: {
+      title: 'AutoPackLine — Sistema de Rastreabilidade Industrial',
+      description: 'Sistema Full Stack em desenvolvimento para identificação e rastreabilidade de caixas e lotes em linhas de embalagem, com leitura de QR Code e código de barras e controle dos fluxos de aprovação, reprovação e reteste.',
+      technologies: 'React, TypeScript, Vite, Python, FastAPI, MySQL, Docker, APIs REST',
+      highlights: 'regras operacionais configuráveis, histórico de leituras e retestes, rastreabilidade de lotes, arquitetura modular e preparação para integração com máquinas e CLPs',
+      link: 'https://github.com/pvrezende/Autopack-line',
+      linkLabel: 'GitHub'
+    },
     tubovision: {
       title: 'TuboVision Capilar — Inspeção Industrial com IA',
       description: 'Sistema de visão computacional para inspeção automatizada de capilares em ambiente industrial, com processamento de imagens, classificação de peças e integração software + hardware.',
@@ -140,6 +176,14 @@ const sharedProjects = {
     }
   },
   en: {
+    autopackline: {
+      title: 'AutoPackLine — Industrial Traceability System',
+      description: 'Full Stack system under development for identifying and tracking boxes and batches on packaging lines, using QR code and barcode scanning with approval, rejection, and retest workflows.',
+      technologies: 'React, TypeScript, Vite, Python, FastAPI, MySQL, Docker, REST APIs',
+      highlights: 'configurable operational rules, reading and retest history, batch traceability, modular architecture, and preparation for machine and PLC integration',
+      link: 'https://github.com/pvrezende/Autopack-line',
+      linkLabel: 'GitHub'
+    },
     tubovision: {
       title: 'TuboVision Capilar — Industrial Inspection with AI',
       description: 'Computer vision system for automated capillary inspection in an industrial environment, with image processing, part classification, and software + hardware integration.',
@@ -193,7 +237,7 @@ const roleProfiles = {
       footerSub: 'Disponível para oportunidades em Desenvolvimento Full Stack',
       fileName: 'Paulo-Rezende-Curriculo-Fullstack',
       tags: ['React', 'Angular', 'TypeScript', 'Node.js', 'Express.js', 'APIs REST', 'Prisma ORM', 'MySQL', 'PostgreSQL', 'AWS', 'Docker', 'React Native', 'Python', 'OpenCV', 'Git & GitHub'],
-      projects: ['tubovision', 'dashboard', 'controle', 'smartpet'],
+      projects: ['autopackline', 'tubovision', 'dashboard', 'controle', 'smartpet'],
       jobList: `
         <li>Havia baixa visibilidade sobre produção, atividades e entregas; desenvolvi aplicações completas integrando front-end, back-end, banco de dados e dashboards; isso centralizou informações operacionais e melhorou a tomada de decisão em tempo real; utilizando Node.js, React, TypeScript, MySQL e PostgreSQL.</li>
         <li>Processos internos dependiam de controles manuais e comunicação fragmentada; criei APIs REST e fluxos de integração entre sistemas; isso reduziu retrabalho, aumentou a confiabilidade dos dados e tornou as rotinas mais eficientes; utilizando Node.js, Express, Prisma e APIs REST.</li>
@@ -218,7 +262,7 @@ const roleProfiles = {
       footerSub: 'Disponível para oportunidades em Back-end Node.js',
       fileName: 'Paulo-Rezende-Curriculo-Backend-Node',
       tags: ['Node.js', 'Express.js', 'NestJS', 'TypeScript', 'APIs REST', 'JWT', 'Prisma ORM', 'TypeORM', 'MySQL', 'PostgreSQL', 'Docker', 'AWS', 'Nginx', 'PM2', 'Git'],
-      projects: ['dashboard', 'controle', 'smartpet'],
+      projects: ['autopackline', 'dashboard', 'controle', 'smartpet'],
       jobList: `
         <li>Sistemas internos possuíam baixa padronização no acesso e processamento de dados; desenvolvi APIs REST para centralizar, processar e disponibilizar informações; isso reduziu inconsistências e aumentou a confiabilidade das integrações; utilizando Node.js, Express, TypeScript, MySQL e PostgreSQL.</li>
         <li>Processos operacionais dependiam de etapas manuais sujeitas a erro; implementei integrações e automações no back-end; isso reduziu retrabalho, aumentou eficiência operacional e melhorou consistência dos dados; utilizando Node.js, APIs REST, JWT e integrações entre serviços.</li>
@@ -244,7 +288,7 @@ const roleProfiles = {
       footerSub: 'Disponível para oportunidades em Desenvolvimento Front-end',
       fileName: 'Paulo-Rezende-Curriculo-Frontend',
       tags: ['React', 'Angular', 'TypeScript', 'JavaScript', 'HTML5', 'CSS3', 'APIs REST', 'Chart.js', 'Responsividade', 'Componentização', 'UI/UX', 'Integração com Back-end', 'Git & GitHub'],
-      projects: ['dashboard', 'controle', 'smartpet'],
+      projects: ['autopackline', 'dashboard', 'controle', 'smartpet'],
       jobList: `
         <li>Usuários precisavam acompanhar produção, atividades e indicadores de forma clara; desenvolvi interfaces web e dashboards para centralizar informações operacionais em tempo real; isso melhorou a leitura dos processos e apoiou decisões rápidas; utilizando React, TypeScript, JavaScript, HTML, CSS e Chart.js.</li>
         <li>Sistemas internos exigiam melhor experiência de uso e organização visual; estruturei telas com foco em responsividade, hierarquia de informação e navegação objetiva; isso aumentou usabilidade e tornou as rotinas mais práticas para os usuários; utilizando HTML5, CSS3, React e boas práticas de UI/UX.</li>
@@ -270,7 +314,7 @@ const roleProfiles = {
       footerSub: 'Disponível para oportunidades em Python, IA e Visão Computacional',
       fileName: 'Paulo-Rezende-Curriculo-Python-IA-Visao-Computacional',
       tags: ['Python', 'FastAPI', 'OpenCV', 'Visão Computacional', 'Processamento de Imagens', 'IA Industrial', 'WebSocket', 'SQLite', 'Automação Industrial', 'Integração Hardware + Software', 'Câmeras Industriais', 'Tempo Real'],
-      projects: ['tubovision'],
+      projects: ['autopackline', 'tubovision'],
       jobList: `
         <li>A inspeção industrial dependia de análise manual e baixa rastreabilidade visual; desenvolvi algoritmos de inspeção para classificar peças e apoiar decisões de aprovação ou reprovação; isso aumentou controle do processo e possibilitou validação automatizada; utilizando Python, OpenCV e processamento de imagens.</li>
         <li>A operação precisava integrar visão computacional com sistemas de acompanhamento e automação; desenvolvi APIs e comunicação em tempo real para conectar inspeção, dashboard e fluxo operacional; isso aproximou software, hardware e processo produtivo; utilizando FastAPI, WebSocket, SQLite e câmeras industriais.</li>
@@ -300,7 +344,7 @@ const roleProfiles = {
       footerSub: 'Disponível para oportunidades em Java / Spring Boot',
       fileName: 'Paulo-Rezende-Curriculo-Java-Spring-Boot',
       tags: ['Java', 'Spring Boot', 'APIs REST', 'MySQL', 'Angular', 'TypeScript', 'Arquitetura em Camadas', 'Back-end', 'Git', 'Boas práticas'],
-      projects: ['smartpet'],
+      projects: ['autopackline', 'smartpet'],
       jobList: `
         <li>Havia necessidade de evoluir para arquiteturas corporativas amplamente utilizadas no mercado; desenvolvi aplicações back-end com Java e Spring Boot; isso ampliou minha capacidade de atuar em sistemas enterprise e aplicações robustas; utilizando Java, Spring Boot e APIs REST.</li>
         <li>Sistemas demandavam integração eficiente entre front-end e back-end; implementei comunicação entre APIs Java e interfaces web; isso melhorou minha compreensão do fluxo completo de dados e da integração entre camadas; utilizando Spring Boot, Angular, TypeScript e APIs REST.</li>
@@ -325,7 +369,7 @@ const roleProfiles = {
       footerSub: 'Disponível para oportunidades em Mobile React Native',
       fileName: 'Paulo-Rezende-Curriculo-Mobile-React-Native',
       tags: ['React Native', 'Expo', 'Expo Go', 'JavaScript', 'APIs REST', 'JWT', 'Node.js', 'Navegação', 'Consumo de APIs', 'Mobile Full Stack', 'Git'],
-      projects: ['controle'],
+      projects: ['autopackline', 'controle'],
       jobList: `
         <li>Usuários precisavam organizar informações financeiras de forma simples e acessível; desenvolvi aplicação mobile para controle de receitas, despesas e planejamento financeiro; isso facilitou acompanhamento financeiro e melhorou a experiência de uso; utilizando React Native, Expo e JavaScript.</li>
         <li>A aplicação precisava sincronizar informações com o back-end; implementei consumo de APIs REST e autenticação; isso garantiu comunicação consistente entre app e servidor e melhor segurança no acesso; utilizando React Native, Node.js, APIs REST e JWT.</li>
@@ -352,7 +396,7 @@ const roleProfiles = {
       footerSub: 'Available for Full Stack opportunities',
       fileName: 'Paulo-Rezende-Resume-Fullstack',
       tags: ['React', 'Angular', 'TypeScript', 'Node.js', 'Express.js', 'REST APIs', 'Prisma ORM', 'MySQL', 'PostgreSQL', 'AWS', 'Docker', 'React Native', 'Python', 'OpenCV', 'Git & GitHub'],
-      projects: ['tubovision', 'dashboard', 'controle', 'smartpet'],
+      projects: ['autopackline', 'tubovision', 'dashboard', 'controle', 'smartpet'],
       jobList: `
         <li>There was low visibility over production, activities, and deliveries; I developed complete applications integrating front-end, back-end, databases, and dashboards; this centralized operational information and improved real-time decision-making; using Node.js, React, TypeScript, MySQL, and PostgreSQL.</li>
         <li>Internal processes depended on manual controls and fragmented communication; I created REST APIs and integration flows between systems; this reduced rework, increased data reliability, and made routines more efficient; using Node.js, Express, Prisma, and REST APIs.</li>
@@ -377,7 +421,7 @@ const roleProfiles = {
       footerSub: 'Available for Node.js Back-end opportunities',
       fileName: 'Paulo-Rezende-Resume-Backend-Node',
       tags: ['Node.js', 'Express.js', 'NestJS', 'TypeScript', 'REST APIs', 'JWT', 'Prisma ORM', 'TypeORM', 'MySQL', 'PostgreSQL', 'Docker', 'AWS', 'Nginx', 'PM2', 'Git'],
-      projects: ['dashboard', 'controle', 'smartpet'],
+      projects: ['autopackline', 'dashboard', 'controle', 'smartpet'],
       jobList: `
         <li>Internal systems lacked standardization in data access and processing; I developed REST APIs to centralize, process, and expose information; this reduced inconsistencies and increased integration reliability; using Node.js, Express, TypeScript, MySQL, and PostgreSQL.</li>
         <li>Operational processes depended on manual steps prone to errors; I implemented back-end integrations and automation; this reduced rework, increased operational efficiency, and improved data consistency; using Node.js, REST APIs, JWT, and service integrations.</li>
@@ -403,7 +447,7 @@ const roleProfiles = {
       footerSub: 'Available for Front-end opportunities',
       fileName: 'Paulo-Rezende-Resume-Frontend',
       tags: ['React', 'Angular', 'TypeScript', 'JavaScript', 'HTML5', 'CSS3', 'REST APIs', 'Chart.js', 'Responsive Design', 'Componentization', 'UI/UX', 'Back-end Integration', 'Git & GitHub'],
-      projects: ['dashboard', 'controle', 'smartpet'],
+      projects: ['autopackline', 'dashboard', 'controle', 'smartpet'],
       jobList: `
         <li>Users needed to track production, activities, and indicators clearly; I developed web interfaces and dashboards to centralize operational information in real time; this improved process visibility and supported faster decisions; using React, TypeScript, JavaScript, HTML, CSS, and Chart.js.</li>
         <li>Internal systems required better user experience and visual organization; I structured screens focused on responsiveness, information hierarchy, and objective navigation; this increased usability and made routines more practical for users; using HTML5, CSS3, React, and UI/UX best practices.</li>
@@ -428,7 +472,7 @@ const roleProfiles = {
       footerSub: 'Available for Python, AI, and Computer Vision opportunities',
       fileName: 'Paulo-Rezende-Resume-Python-AI-Computer-Vision',
       tags: ['Python', 'FastAPI', 'OpenCV', 'Computer Vision', 'Image Processing', 'Industrial AI', 'WebSocket', 'SQLite', 'Industrial Automation', 'Hardware + Software Integration', 'Industrial Cameras', 'Real Time'],
-      projects: ['tubovision'],
+      projects: ['autopackline', 'tubovision'],
       jobList: `
         <li>Industrial inspection relied on manual analysis and low visual traceability; I developed visual inspection algorithms to classify parts and support approval/rejection decisions; this increased process control and enabled automated validation; using Python, OpenCV, and image processing.</li>
         <li>The operation needed to integrate computer vision with monitoring systems and automation; I developed APIs and real-time communication to connect inspection, dashboards, and operational workflows; this connected software, hardware, and production processes; using FastAPI, WebSocket, SQLite, and industrial cameras.</li>
@@ -458,7 +502,7 @@ const roleProfiles = {
       footerSub: 'Available for Java / Spring Boot opportunities',
       fileName: 'Paulo-Rezende-Resume-Java-Spring-Boot',
       tags: ['Java', 'Spring Boot', 'REST APIs', 'MySQL', 'Angular', 'TypeScript', 'Layered Architecture', 'Back-end', 'Git', 'Best Practices'],
-      projects: ['smartpet'],
+      projects: ['autopackline', 'smartpet'],
       jobList: `
         <li>There was a need to evolve into enterprise architectures widely used in the market; I developed back-end applications with Java and Spring Boot; this expanded my ability to work with enterprise systems and robust applications; using Java, Spring Boot, and REST APIs.</li>
         <li>Systems required efficient integration between front-end and back-end; I implemented communication between Java APIs and web interfaces; this improved my understanding of complete data flow and layer integration; using Spring Boot, Angular, TypeScript, and REST APIs.</li>
@@ -483,7 +527,7 @@ const roleProfiles = {
       footerSub: 'Available for React Native Mobile opportunities',
       fileName: 'Paulo-Rezende-Resume-Mobile-React-Native',
       tags: ['React Native', 'Expo', 'Expo Go', 'JavaScript', 'REST APIs', 'JWT', 'Node.js', 'Navigation', 'API Consumption', 'Mobile Full Stack', 'Git'],
-      projects: ['controle'],
+      projects: ['autopackline', 'controle'],
       jobList: `
         <li>Users needed to organize financial information in a simple and accessible way; I developed a mobile application for income, expense, and financial planning control; this made financial tracking easier and improved user experience; using React Native, Expo, and JavaScript.</li>
         <li>The application needed to synchronize information with the back-end; I implemented REST API consumption and authentication; this ensured consistent communication between app and server and improved access security; using React Native, Node.js, REST APIs, and JWT.</li>
@@ -580,7 +624,7 @@ function renderProjects(projectKeys, lang) {
       <ul>
         <li><strong>${labels.techLabel}</strong> ${project.technologies}</li>
         <li><strong>${labels.highlightLabel}</strong> ${project.highlights}</li>
-        <li><strong>Link:</strong> <a target="_blank" rel="noreferrer" href="${project.link}">${project.linkLabel}</a></li>
+        ${project.link ? `<li><strong>Link:</strong> <a target="_blank" rel="noreferrer" href="${project.link}">${project.linkLabel}</a></li>` : ''}
       </ul>
     </article>
   `).join('');
